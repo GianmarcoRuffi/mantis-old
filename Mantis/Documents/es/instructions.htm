@@ -1,0 +1,3508 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>Mantis Operational Instructions</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+h1
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:16.0pt;
+	font-family:"Times New Roman";
+	text-transform:uppercase;}
+h2
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-style:italic;}
+h3
+	{margin:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman";
+	font-style:italic;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:48.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:60.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:84.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:96.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	font-style:italic;}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:Tahoma;}
+ins
+	{text-decoration:none;}
+span.msoIns
+	{text-decoration:underline;}
+ /* Page Definitions */
+ @page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+@page Section2
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section2
+	{page:Section2;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=Section1>
+
+<p class=MsoTitle><span style='font-size:18.0pt'>Mantis Operational
+Instructions</span></p>
+
+<p class=MsoSubtitle><span lang=ES-MX>Software Version 3.0</span></p>
+
+<p class=MsoSubtitle><span lang=ES-MX>Updated October 10, 2006</span></p>
+
+<p class=MsoSubtitle><span lang=ES-MX>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><i><span lang=ES-MX>Hay
+disponibles versiones traducidas de estas instrucciones dentro del programa
+Mantis y en el sitio web de Mantis: </span><a href="http://www.ude.com/mantis"
+target="_blank"><span lang=ES-MX>www.ude.com/mantis</span></a></i></p>
+
+<p class=MsoNormal style='text-autospace:none'><span lang=ES-MX>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-autospace:none'>This overview document addresses
+operational functionality of the Mantis Tournament Software. It is intended to
+be as comprehensive as possible, but will only address functionality. The
+functionality and procedures shown within this document should be used in
+conjunction with all appropriate policy documents.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoNormal style='text-autospace:none'>If you are already familiar with
+software packages and just need some basic information on procedure, you may
+skip to the <a href="#_Recommended_Procedure">Recommended Procedure</a> section
+of this document and refer to the other sections as needed for specific tasks.</p>
+
+<p class=MsoNormal style='text-autospace:none'>&nbsp;</p>
+
+<p class=MsoSubtitle align=left style='text-align:left'><b><u><span
+style='font-size:16.0pt'>Table of Contents </span></u></b></p>
+
+<p class=MsoSubtitle><span style='font-style:normal'>&nbsp;</span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc148434924">Overview<span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>4</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434925">Menus and
+Interface Overview<span style='color:windowtext;display:none;text-decoration:
+none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>4</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434926">Menus<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>4</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434927">Tournament
+List Selector<span style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>5</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434928">Status Bar<span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>5</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434929">Enroll
+Player Tab<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>5</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434930">Tournament
+Tab<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>7</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434931">Timers Tab<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>10</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434932">Documents
+Tab<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>11</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434933">Player
+Information Tab<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>11</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434934">Archive Tab<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>12</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434935">Data
+Overview<span style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>12</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434936">Player
+Information<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>13</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434937">Tournaments<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>13</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434938">Tournament
+Tracking<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>13</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434939">Tournament
+Reporting / Data Uplink<span style='color:windowtext;display:none;text-decoration:
+none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>13</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc148434940">Getting
+Started<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>16</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434941">Creating a
+New Tournament<span style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>16</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434942">Advanced
+Tournament Options<span style='color:windowtext;display:none;text-decoration:
+none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>19</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434943">Updating a Tournament<span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>20</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434944">Creating an
+Event Location<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>20</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434945">Adding
+Players to the Local Player List<span style='color:windowtext;display:none;
+text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>21</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434946">Searching
+for a Player UDE Number<span style='color:windowtext;display:none;text-decoration:
+none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>23</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434947">Adding
+Players to an Individual Tournament<span style='color:windowtext;display:none;
+text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>24</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434948">Add from the
+local player list<span style='color:windowtext;display:none;text-decoration:
+none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>24</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434949">Add players
+via Player UDE Number<span style='color:windowtext;display:none;text-decoration:
+none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>25</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434950">Adding
+Players and Teams to a Team Tournament<span style='color:windowtext;display:
+none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>25</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434951">Creating a
+new Team<span style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>25</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434952">Add from the
+local player list<span style='color:windowtext;display:none;text-decoration:
+none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>26</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434953">Add players
+via Player UDE Number<span style='color:windowtext;display:none;text-decoration:
+none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>26</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434954">Late
+enrollment / re-enrollment<span style='color:windowtext;display:none;
+text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>26</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc148434955">Tournament
+Procedure<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>27</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434956">Beginning
+the Tournament<span style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>27</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434957">Creating
+Pairings<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>27</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434958">Playoff
+Pairings<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>28</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434959">Re-Pairing a
+Round<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>30</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434960">Manual
+Re-Pairing<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>31</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434961">General
+philosophy<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>31</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434962">Splitting a
+pairing<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>32</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434963">Creating a
+new pairing<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>32</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434964">Applying
+manual pairings<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>33</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434965">Match
+Results Entry<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>33</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434966">Result Entry
+by Table Number<span style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>33</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434967">Result Entry
+via Pairings/Standings window<span style='color:windowtext;display:none;
+text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>34</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434968">Result Entry
+via “Hot-Key”<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>34</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434969">Corrections<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>35</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434970">Player
+Maintenance<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>35</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434971">Dropping a
+Player<span style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>35</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434972">Re-Enrolling
+a Dropped Player<span style='color:windowtext;display:none;text-decoration:
+none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>36</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434973">Adding a
+Late Player<span style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>36</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434974">Viewing the
+Match History for a player or team<span style='color:windowtext;display:none;
+text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>37</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434975">Selecting a
+Random Table<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>38</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434976">Scoring in a
+Grand Melee Tournament<span style='color:windowtext;display:none;text-decoration:
+none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>38</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434977">Completing a
+Tournament<span style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>39</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc148434978">Penalties<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>39</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434979">Viewing
+Penalties<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>40</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434980">Adding/Editing
+Penalties<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>41</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc148434981">Standings<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>43</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc148434982">Documents /
+Forms / Reports<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>44</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434983">Occasional
+Reports<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>44</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434984">Print Player
+List<span style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>44</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434985">Seat Players
+List<span style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>44</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434986">Pod
+Assignment by player<span style='color:windowtext;display:none;text-decoration:
+none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>45</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434987">Pod Seating
+by pod<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>45</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434988">Using Custom
+Page Breaks<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>45</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434989">Pre-round
+reports<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>46</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434990">Standings<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>47</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434991">Pairings by
+Player<span style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>47</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434992">Pairings by
+Table<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>47</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148434993">Results
+Slips<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>47</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434994">Exporting
+HTML and XML Standings and Pairings<span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>48</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc148434995">Draft Pods<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>50</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434996">Creating
+Draft Pods<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>50</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434997">Printing
+Draft Seatings<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>51</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434998">Creating
+Pairings Within Pods<span style='color:windowtext;display:none;text-decoration:
+none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>51</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148434999">Creating New
+Draft Pods<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>52</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148435000">Ending Draft
+Pods<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>52</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc148435001">Tournament
+Maintenance<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>53</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148435002">Tournament
+Backups and Import/Export<span style='color:windowtext;display:none;text-decoration:
+none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>53</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148435003">Automatic
+Backups<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>53</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148435004">Manual
+Backups<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>53</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148435005">Restoring a
+previous round<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>53</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148435006">Loading an
+outside tournament<span style='color:windowtext;display:none;text-decoration:
+none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>54</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148435007">Closed
+Tournaments<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>54</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148435008">Viewing a
+closed tournament<span style='color:windowtext;display:none;text-decoration:
+none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>54</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148435009">Reopening a
+closed tournament<span style='color:windowtext;display:none;text-decoration:
+none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>55</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148435010">Removing a
+closed tournament from the list<span style='color:windowtext;display:none;
+text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>55</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148435011">Show all
+closed tournaments<span style='color:windowtext;display:none;text-decoration:
+none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>55</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc148435012">Mantis
+Utilities<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>56</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148435013">Reconcile
+Temporary IDs<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>56</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148435014">Set Starting
+Table Number<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>56</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148435015">Options<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>57</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148435016">Set Language<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>57</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148435017">Timer
+Options<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>58</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148435018">Proxy
+Settings<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>59</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148435019">Tournament
+Defaults<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>60</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148435020">Other
+Options<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>61</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc148435021">Recommended
+Procedure<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>62</span></a></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><a href="#_Toc148435022">Technical
+Information<span style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>64</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148435023">Minimum
+System Requirements<span style='color:windowtext;display:none;text-decoration:
+none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>64</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148435024">Installation<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>64</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148435025">Running the
+Program<span style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>64</span></a></span></p>
+
+<p class=MsoToc2><span class=MsoHyperlink><a href="#_Toc148435026">Contact Us /
+Technical Support<span style='color:windowtext;display:none;text-decoration:
+none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>64</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148435027">To become a
+certified UDE Tournament Organizer<span style='color:windowtext;display:none;
+text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>64</span></a></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><a href="#_Toc148435028">Technical
+Support<span style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>64</span></a></span></p>
+
+<p class=MsoToc3>&nbsp;</p>
+
+</div>
+
+<b><span style='font-size:16.0pt;font-family:"Times New Roman";text-transform:
+uppercase'><br clear=all style='page-break-before:auto'>
+</span></b>
+
+<div class=Section2><br clear=all style='page-break-before:always'>
+
+<h1><a name="_Toc80603199"></a><a name="_Toc80602931"></a><a name="_Toc80602863"></a><a
+name="_Toc80602727"></a><a name="_Toc80598076"></a><a name="_Toc148434924">Overview</a></h1>
+
+<h2><a name="_Toc148434925">Menus and Interface Overview</a></h2>
+
+<h3><a name="_Toc148434926"></a><a name="_Menus"></a>Menus</h3>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=576 height=307 src="instructions_files/image001.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 1</p>
+
+<p class=MsoNormal>File Menu:</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal>Exit</li>
+</ul>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Utilities Menu</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal><a href="#_Reconcile_Temporary_IDs">Reconcile Temporary
+     IDs</a></li>
+ <li class=MsoNormal><a href="#_Tournament_Reporting_/">Tournament
+     Reporting/Data Uplink</a></li>
+ <li class=MsoNormal><a href="#_Set_Starting_Table">Set Starting Table Number</a></li>
+ <li class=MsoNormal><a href="#_Options">Options</a></li>
+</ul>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Tournament Menu</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal><a href="#_Creating_a_New">Create New Tournament</a></li>
+ <li class=MsoNormal><a href="#_Updating_a_Tournament">Update Tournament</a></li>
+ <li class=MsoNormal><a href="#_Completing_a_Tournament">Close</a></li>
+ <li class=MsoNormal><a href="#_Documents_/_Forms_1">Print Documents</a></li>
+ <li class=MsoNormal><a href="#_Viewing_the_Match">Player Match History</a></li>
+ <li class=MsoNormal><a href="#_Standings">Display Standings</a></li>
+ <li class=MsoNormal><a href="#_Draft_Pods">Draft Pod Manager</a></li>
+ <li class=MsoNormal><a href="#_Playoff_Pairings">Playoff</a></li>
+ <li class=MsoNormal><a href="#_Penalties">Penalties</a></li>
+ <li class=MsoNormal><a href="#_Selecting_a_Random">Choose Random Table</a></li>
+ <li class=MsoNormal><a href="#_HTML_Standings_and">Export HTML and XML
+     Standings</a></li>
+ <li class=MsoNormal><a href="#_Tournament_Backup">Export Tournament to File</a></li>
+ <li class=MsoNormal><a href="#_Tournament_Backup">Import Tournament from File</a></li>
+</ul>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Version Menu </p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>About - Displays the version of Mantis you are using.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434927"></a><a name="_Tournament_List_Selector"></a>Tournament
+List Selector</h3>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=576 height=49 src="instructions_files/image002.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 2</p>
+
+<p class=MsoNormal>The Tournament List Selector displays the names of all the
+active tournaments on this computer.  Select a tournament from the drop-down
+list to switch between open tournaments.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434928">Status Bar</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=576 height=25 src="instructions_files/image003.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 3</p>
+
+<p class=MsoNormal>The status bar is located at the bottom of the Mantis
+interface and displays status about the selected tournament, including: </p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>Active Players</b>: The first number displays the number of
+active players in the tournament and the second number displays the total
+number of players.</p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>Unreported</b>: The number of matches that have not been
+reported for this round.</p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>Round</b>: Displays the current round or if viewing a previous
+round, the first number will display the viewed round and the second number
+will display the number of rounds in the tournament.</p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>Tournament Format</b>: This box will display the game, format
+and pairings structure for the tournament.  If the tournament is in playoffs,
+the pairings structure will display “Playoffs.”  To change these settings, see
+[<a href="#_Updating_a_Tournament">Updating a tournament</a>].</p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>Team Format</b>: If the tournament is a team format, that
+information will be displayed here.</p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>Pods</b>: If the tournament is using draft pods, this will
+display the number of pods that exist, otherwise it will read “None.”  See [<a
+href="#_Draft_Pods">Draft Pods</a>] for more information about draft pods.</p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b>Timers</b>: If a timer is set up for this tournament, it will
+appear in the bottom-right box of the status bar.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434929"></a><a name="_Enroll_Player_Tab"></a>Enroll Player
+Tab</h3>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The Enroll Player Tab is divided into the following
+sections:</p>
+
+<p class=MsoNormal>  </p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal>The “Player UDE Number” section allows players to be added
+     to the selected tournament or simply added to the Local Player List.</li>
+ <li class=MsoNormal>The “Global Player Search” section allows you to search
+     for a player’s UDE Number based on that player’s Zip or Postal code and
+     Name.  The Global Player list must be downloaded for results to appear
+     (see [<a href="#_Tournament_Reporting_/">Tournament Reporting/Data Uplink</a>]
+     for more information.)</li>
+ <li class=MsoNormal>The “Local Player List” section displays all players who
+     have played in tournaments run on this copy of Mantis or added to the list
+     by the “Player UDE Number” Section.</li>
+ <li class=MsoNormal>The “Show Enrolled Players Only” checkbox will hide all
+     players on the list not enrolled in the selected tournament.</li>
+ <li class=MsoNormal>See [<a href="#_Print_Player_List">Print Player List</a>]
+     for more information about the “Print Player List” button.</li>
+ <li class=MsoNormal>See [<a href="#_Seat_Players_List">Seat Player List</a>]
+     for more information about the “Seat Players” button.</li>
+</ul>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=575 height=313 src="instructions_files/image004.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 4</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=576 height=314 src="instructions_files/image005.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 5 (Team Enrollment)</p>
+
+<p class=MsoNormal style='margin-left:.25in'>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434930"></a><a name="_Tournament_Tab"></a>Tournament Tab</h3>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=576 height=314 src="instructions_files/image006.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 6</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The Tournament Tab is divided into the following<span
+class=msoIns><ins datetime="2005-01-24T16:06"> </ins></span>sections:</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal>The Pairings/Standings window displays a variety of
+     information about the current tournament.  It displays the pairings for
+     the tournament, standings, goals, and current points of the players in
+     grand melee tournaments.  You can choose the current view from the button
+     next to the “Display Standings” button, which will display a context
+     menu.  When viewing pairings, the radio buttons “List by Table” and “List
+     by Name” will sort the list appropriately, and the checkbox “Show
+     Outstanding Results Only” will hide all completed matches.  When viewing
+     standings, these have no effect.  When viewing Goals, you will see a list
+     of enrolled players with columns next to them, where you can mark which
+     goals they have completed.  When running a Grand Melee tournament, you can
+     see the current points for each player.</li>
+ <li class=MsoNormal>The “Pair Round” button will create pairings for the next
+     round. See [<a href="#_Creating_Pairings">Creating Pairings</a>] for more
+     information.</li>
+ <li class=MsoNormal>The “Manual Pairings” button will display the “Manual
+     Pairings” dialog, see [<a href="#_Manual_Re-Pairing">Manual Re-Pairing</a>]
+     for more information.</li>
+ <li class=MsoNormal>The “Re-pair Round” button will re-pair the round (see [<a
+     href="#_Re-Pairing_a_Round">Re-Pairing a round</a>] for more information.)</li>
+ <li class=MsoNormal>The “Selected Round” section is used to change between the
+     current round and previous rounds of the tournament when displaying
+     pairings, entering results and viewing standings.</li>
+ <li class=MsoNormal>The “Results Table Entry” section is used for entering
+     match results.  See [<a href="#_Result_Entry_by">Result Entry by Table
+     Number</a>] for more information.</li>
+ <li class=MsoNormal>The “Print Documents” button is used to create various
+     printouts for the tournament.  See [<a href="#_Documents_/_Forms">Documents/Forms/Reports</a>]
+     for more information.</li>
+ <li class=MsoNormal>The “Close Tournament” button is used when the tournament
+     is finished.  See [<a href="#_Completing_a_Tournament">Completing a Tournament</a>]
+     for more information.</li>
+ <li class=MsoNormal>The “Display Standings” button is used to switch the
+     Pairings/Standings window between the two views.  The text of this button
+     will switch between viewing the standings and pairings of the current
+     tournament.  A small button to the right will display a context menu of
+     additional options.</li>
+ <li class=MsoNormal>The “Playoff” button is used to begin single-elimination
+     playoffs for a Swiss tournament.  See [<a href="#_Playoff_Pairings">Playoff
+     Pairings</a>] for more information.</li>
+</ul>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=414 height=252 src="instructions_files/image007.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 7 (Standings)</p>
+
+<p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=415 height=252 src="instructions_files/image008.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 8 (Goals)</p>
+
+<p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=418 height=253 src="instructions_files/image009.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 9 (Grand Melee)</p>
+
+<h3><a name="_Toc148434931">Timers Tab</a></h3>
+
+<p class=MsoNormal style='page-break-after:avoid'><img border=0 width=576
+height=432 src="instructions_files/image010.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 10</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>This screen allows the scorekeeper to create timers for the
+tournaments in progress.  The timers can each display a message when a round is
+over, or at specified intervals before or after the end of the round (these are
+set in the Timer Options.)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To add a timer for a tournament, select that tournament from
+the drop-down list in the Timers tab then press the “Add” button.  If needed,
+the length of the round can be adjusted using the text box next to the “Set”
+button, then press the “Set” button.  If needed, multiple timers can run
+simultaneously for any tournament.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Press the “Start” button to begin the timer.  The Progress
+bar to the very left will get smaller as the end of the round approaches, and
+the Time Remaining in the round will change as the timer is running.  All
+timers that belong to the currently selected tournament will appear in the
+status bar, in the box on the farthest right.  The Start button will change to
+“Stop”, and press the button to stop the timer.  When you no longer need the
+timer, press the “Delete” button next to the timer. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434932">Documents Tab</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=575 height=314 src="instructions_files/image011.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 11</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The Documents tab displays current documents installed into
+Mantis.  This list will be updated by downloads from the Data Uplink feature
+(see [<a href="#_Tournament_Reporting_/">Tournament Reporting/Data Uplink</a>]
+for more information.)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434933"></a><a name="_Player_Information_Tab"></a>Player
+Information Tab</h3>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=575 height=314 src="instructions_files/image012.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 12</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The Player Information Tab records details about a player. 
+From here, you can make spelling changes to a player’s name and record other
+information.  Note that this information is not uploaded to Upper Deck, nor is
+this information downloaded from Upper Deck.  Any information the Tournament
+Organizer wishes to record must be collected directly from the players.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Players with the birth date field will appear in appropriate
+standings when displaying the standings of specific age groups.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434934"></a><a name="_Archive_Tab"></a>Archive Tab</h3>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=575 height=309 src="instructions_files/image013.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 13</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Closed tournaments are listed in the “Archive” tab.  All
+tournaments listed here can be viewed by pressing the “View” button (the
+Tournament List Selector will highlight red when closed tournaments are being
+viewed) and all tournaments except those that have been uploaded can be
+re-opened with the “Re-Open” button, which permanently returns the tournament
+to “Open” status.  “Remove from list” will hide a tournament from this list,
+while “Show All Closed” will display all closed tournaments while it is
+checked.  Closed tournaments will be marked “Completed”, uploaded tournaments
+will be marked “Reported” and tournaments that have been verified uploaded
+completely will be marked “Final.”</p>
+
+<h2><a name="_Toc148434935">Data Overview</a></h2>
+
+<p class=MsoNormal>Mantis uses a database to store information while running a
+tournament. The design of Mantis is such that any actions performed immediately
+update the database. The user may therefore close the software at any point
+without losing any previously entered data.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>This section provides brief details about the information
+that is tracked by Mantis.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Note: The database used by Mantis is password protected, you
+should not attempt to manually modify any information within the database.
+Doing so could compromise data integrity. If there is ever a problem within the
+tournament that you do not believe can be corrected through the interface,
+please contact an Upper Deck Mantis Representative for assistance.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='text-autospace:ideograph-other'><a name="_Toc148434936"></a><a
+name="_Toc80603200"></a><a name="_Toc80602932"></a><a name="_Toc80602864"></a><a
+name="_Toc80602728"></a><a name="_Toc80598077">Player Information</a></h3>
+
+<p class=MsoNormal>There are two levels of player information tracked by the
+Mantis Software. A global player database allows quick entry of player data,
+even if the player has never played in a local tournament previously.  It also
+allows for player lookup if a player has forgotten their UDE Membership Number.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>In addition, a local player list allows tracking of more
+detailed information of players who participate in local events. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434937"></a><a name="_Toc80603201"></a><a
+name="_Toc80602933"></a><a name="_Toc80602865"></a><a name="_Toc80602729"></a><a
+name="_Toc80598078">Tournaments</a></h3>
+
+<p class=MsoNormal>Mantis tracks multiple tournaments and may even have
+multiple tournaments running at the same time. Match results are stored for all
+locally run tournaments and can be viewed for historic events.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><a name="_Toc148434938"></a><a name="_Toc80603202"></a><a
+name="_Toc80602934"></a><a name="_Toc80602866"></a><a name="_Toc80602730"></a><a
+name="_Toc80598079">Tournament Tracking</a></h2>
+
+<p class=MsoNormal>All of your tournaments are tracked within the Mantis
+Software. If you wish to use Mantis to run a sanctioned event, you will need to
+obtain a sanctioning number. It is not necessary to obtain a sanctioning number
+prior to running your event. However, it is strongly recommended that you
+obtain a sanctioning number for your events several days in advance through the
+Data Uplink dialog. (Note: Mantis must be connected to the Internet for this.)
+Your tournaments will appear on the UDE website, which allows players to find
+your tournament and compare their rankings to other players' around the world.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>You may also run non-sanctioned events using the Mantis
+Tournament Software. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt'><i>Note</i>: To sanction an event,
+you must be a certified UDE Tournament Organizer. To learn more about how to
+become a certified UDE Tournament Organizer, please visit our website at <a
+href="http://www.ude.com/judge">http://www.ude.com/judge</a>.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><a name="_Toc148434939"></a><a name="_Ref92777610"></a><a
+name="_Ref92775008"></a><a name="_Ref92773394"></a><a name="_Ref92769873"></a><a
+name="_Toc80603203"></a><a name="_Toc80602935"></a><a name="_Toc80602867"></a><a
+name="_Toc80602731"></a><a name="_Toc80598080"></a><a
+name="_Tournament_Reporting_/"></a>Tournament Reporting / Data Uplink</h2>
+
+<p class=MsoNormal>Tournament Reporting is accomplished through a Mantis Data
+Uplink via the Internet.  This same data uplink is used to obtain tournament
+sanctioning numbers, download global player information and create tournament
+location information that will be used to publish events on the Upper Deck
+tournament website.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Access the Data Uplink from the Utilities Menu.  Note that
+to perform a data uplink, you must provide your UDE Number and password to
+verify your identification.  If you do not know your password, please email <a
+href="mailto:player@upperdeck.com">player@upperdeck.com</a> and request it (you
+will be asked to provide additional information to verify your identity.)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=520 height=520 src="instructions_files/image014.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 14</p>
+
+<p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The following functions may be performed using the Mantis
+data uplink:</p>
+
+<p class=MsoFooter>&nbsp;</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal><b>Obtain a tournament sanctioning number</b>.  This is
+     necessary for all sanctioned tournaments.</li>
+ <li class=MsoNormal><b>Update Game List</b>: This feature is automatic, and as
+     new games are released by Upper Deck, your software will be immediately
+     upgraded.</li>
+ <li class=MsoNormal><b>Report a completed event</b>.  If the tournament was a
+     sanctioned tournament, Mantis will add a line of text with a check box
+     stating “Report: Tournament Name” where Tournament Name is the event name
+     you entered when you setup the tournament. This is a prompt that the
+     tournament was closed and the results need to be uploaded to Upper Deck.</li>
+ <li class=MsoNormal><b>Verify uploaded tournaments</b>: this automatic
+     procedure checks the status of previously uploaded tournaments to make
+     sure the server processed them successfully.</li>
+ <li class=MsoNormal><b>Upload tournament location information</b>.  This
+     information will be uploaded to the Upper Deck website and will be used to
+     report the location of events. This will be done automatically.</li>
+ <li class=MsoNormal><b>Download Event Locations</b>.  This option will
+     download all locations associated with the organizer performing the
+     uplink.  This is useful for installing Mantis Tournament Software on a new
+     computer.</li>
+ <li class=MsoNormal><b>Update Global Player Database</b>.  Mantis maintains a
+     list of all global players and their UDE numbers for ease of player
+     entry.  Performing this task will update the global player database with
+     all new and updated players from our server.  Please note that depending
+     upon how recently this task was previously performed, it make take a while
+     to download this information.  It is recommended that this option be used
+     on a high-speed Internet connection.</li>
+ <li class=MsoNormal><b>Download pre-sanctioned tournaments</b>. This will
+     download tournaments created from a different copy of Mantis or created on
+     the website by Upper Deck administrators and Premiere Tournament
+     Organizers to this computer.</li>
+ <li class=MsoNormal><b>Download Latest Documents</b>.  This option is used to
+     download the latest versions of Mantis documents, such as this instruction
+     document as well as UDE Tournament documents.</li>
+ <li class=MsoNormal><b>Update Amateur/Pro Player List</b>.  This option
+     updates the player’s Amateur/Pro status with their current standings.</li>
+ <li class=MsoNormal><b>Update Honor Rankings</b>: Participation tournaments
+     award Honor to the players enrolled in them.  You can view the Honor
+     standings on our website, and update the players’ Honor rankings in
+     Mantis, which will display their rank on appropriate tournament
+     printouts.  </li>
+ <li class=MsoNormal><b>Remove Tournaments</b>.  Tournaments that appear on
+     this list that should not get uploaded (because they were uploaded from a
+     different computer already) can be removed from this list via the “Remove
+     Tournaments” button.</li>
+</ul>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt'><i>Note</i>: Checked items sometimes
+may not complete successfully.  Please review any messages generated by the
+uplink procedure to ensure that all tasks were performed properly.</p>
+
+<b><span style='font-size:16.0pt;font-family:"Times New Roman";text-transform:
+uppercase'><br clear=all style='page-break-before:always'>
+</span></b>
+
+<h1><br>
+<a name="_Toc148434940"></a><a name="_Toc80603204"></a><a name="_Toc80602936"></a><a
+name="_Toc80602868"></a><a name="_Toc80602732"></a><a name="_Toc80598081">Getting
+Started</a></h1>
+
+<h2><a name="_Toc148434941"></a><a name="_Ref92770334"></a><a
+name="_Toc80603205"></a><a name="_Toc80602937"></a><a name="_Toc80602869"></a><a
+name="_Toc80602733"></a><a name="_Toc80598082"></a><a name="_Creating_a_New"></a>Creating
+a New Tournament</h2>
+
+<p class=MsoNormal>To create a new tournament in Mantis, select the “Create New
+Tournament” menu item from the Tournament Menu located at the top of the Mantis
+interface.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>You will then be able to define your tournament with the
+following screen:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=576 height=562 src="instructions_files/image015.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 15</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt'><i>Note</i> – If you are running a
+non-sanctioned tournament, you will not be required to provide any information
+except a name for the tournament and the pairing structure (Swiss,
+Single-Elimination, etc).  You may enter the remaining information if desired
+for your own tracking purposes.  If you are running a sanctioned tournament,
+all fields within this screen must be completely filled out.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>Tournament
+Name</b> – Enter the name of the tournament. The name entered here will be the
+display name of the event and will appear on screens and reports to help you
+identify the event.</p>
+
+<p class=MsoToc1 style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;</p>
+
+<p class=MsoToc1 style='margin-left:9.0pt;text-indent:-9.0pt'>Tournament
+Defaults – <span style='font-weight:normal'>You can configure “default”
+settings for your tournaments for each game in our “Options” dialog.  For
+example, you can set default tournament names, locations, and judges for
+Yu-Gi-Oh tournaments, and a different set of defaults for Vs. System
+tournaments.  This button displays the games available in your Mantis, and will
+load the default values for the one you choose.</span>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>Sanctioned
+UDE Event</b> – Check this box if this tournament will be a sanctioned UDE
+tournament.  This will be used to determine whether or not an online
+sanctioning number is necessary for the event and if the results of this
+tournament will be uploaded to the Upper Deck website.</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>Set Sanctioning
+ID</b> – This button is used to set the ID for a tournament that has already
+been pre-sanctioned.  This is only used for tournaments pre-sanctioned from a
+different copy of Mantis or through the Upper Deck Entertainment website when
+you cannot download that Tournament Organizer’s pre-sanctioned tournaments in
+the Data Uplink.</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>Event
+Location</b> – A description of where the tournament will take place.  This
+list contains all locations associated with the present organizer. This
+description will be used to advertise your event.  If your event location does
+not appear in the drop-down list, please refer to the “<a
+href="#_Creating_an_Event">Creating<span class=msoIns><ins
+datetime="2005-01-24T18:01"><u> </u></ins></span>an Event Location</a>” section
+for further information.</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>Organizer
+UDE Number</b> – The UDE membership number of the organizer of the tournament. 
+Note that if the organizer exists within the local player list, the organizer’s
+name will be displayed.  As such, it is always a good idea for an organizer to
+add him/herself to the local player list.</p>
+
+<p class=MsoToc1 style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>Judge UDE
+Number</b> – The UDE membership number of any judges of the tournament.  If the
+judge exists within the local player list, the judge’s name will also be
+displayed.  As such, it is always a good idea for the organizer to add all
+judges to the local player list.  Multiple judges may be assigned to the
+tournament.  To add a judge, enter the judge’s UDE Number and press the “Add
+Judge” button.  You may remove a judge from the list by highlighting that judge
+and pressing the “Remove Judge” button.  The head judge for the event will have
+the letters “HJ” in front of his or her UDE number and may be set by
+highlighting a judge’s UDE number within the judge list and pressing the “Make
+Head Judge” button.  Note that all sanctioned events must have a head judge.</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>Pairings</b>
+– The type of pairing system to use for the tournament.  Current options are
+“Swiss”, “Single Elimination”, and “Single Elimination – Random Pairing”.  </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal><b>Swiss Pairing Structure</b> - Most of this document
+     refers directly to the Swiss pairing structure.  The Swiss pairing
+     structure involves randomly pairing all players for each round of the
+     tournament such that players who have won the same number of matches
+     within the current tournament will be paired against each other as
+     opponents.  This is the standard pairing method for most sanctioned
+     tournaments and has the advantage of allowing all players to play in every
+     round of the tournament.</li>
+ <li class=MsoNormal><b>Single Elimination Pairing Structure</b> - The single
+     elimination pairing structure creates a bracketed tournament where all
+     players are randomly assigned a position within the brackets.  The pairing
+     method has the advantage that it is not necessary to wait for all results
+     of one round to complete before playing later rounds.</li>
+ <li class=MsoNormal><b>Single Elimination – Random Pairing Structure</b> - The
+     random pairing structure is similar to the Swiss pairing structure, but is
+     run as a single-elimination tournament.  During each round of the
+     tournament, only players who won their previous round advance to the
+     subsequent round.  It is required that all results of one round are
+     complete before playing later rounds, but has the advantage of having
+     access to all reporting functionality of the Swiss tournaments when
+     running single-elimination tournaments with large groups of players.  Note
+     that multiple BYES may be assigned in the first round when using this
+     pairing method to avoid assigning BYES in later rounds where a BYE has
+     more impact.</li>
+ <li class=MsoNormal><b>Grand Melee </b>– This tournament format does not have
+     the traditional pairing structure.  Instead, players are awarded a point
+     for each player they defeat.  At the end of the tournament, the last
+     remaining player may get bonus points, and the entire tournament.  This
+     system can also be used to keep track of the number of players enrolled in
+     an Open Dueling tournament.</li>
+</ul>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>Game</b> –
+The Upper Deck Entertainment game being run during the tournament.  Current
+options are Yu-Gi-Oh, Vs System, Quickstrike and World of Warcraft.</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>Format</b> –
+The sanctioning format of the tournament, either “Constructed Deck” or “Sealed
+Pack”.  </p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>Date and
+Time</b> – The projected date and time that the event will be run.  Note – This
+date will be used when referencing your tournament online, regardless of the
+actual date that the event was held.</p>
+
+<h2><a name="_Toc148434942">Advanced Tournament Options</a></h2>
+
+<p class=MsoNormal align=center style='margin-left:9.0pt;text-align:center;
+text-indent:-9.0pt'><img border=0 width=576 height=562
+src="instructions_files/image016.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 16</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>Age
+Restrictions</b> – If there are any limitations on the ages of the players,
+they should be selected here.  Note that it is up to the tournament organizer
+to collect the players ages, and ensure each player meets the age restriction.</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>&nbsp;</b></p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>Team
+Structure</b> – Mantis now supports two- and three-player team events.  </p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>Hobby League</b>
+– If this tournament is a Hobby League tournament, check this box.  Please note
+that not all formats available to Hobby League organizers are available via
+Mantis.</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;<b>Enemy
+Factions Only</b> – World of Warcraft tournaments with Constructed Decks gives
+the players the ability to choose which faction they wish to represent in the
+tournament.  This option ensures that players of the same faction do not play
+each other during the swiss rounds of the tournament.</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>Participation
+Tournament</b> – Participation tournaments will not apply the wins and losses a
+player receives to their official Upper Deck Entertainment Player Rating.  If
+this tournament is uploaded, the enrolled players may earn “Honor Points”
+instead. </p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>Goals </b>–
+In addition to dueling other players in the tournament, the Tournament
+Organizer may declare other goals for the players to perform during the course
+of the tournament.  This area is to manage these goals. </p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'><b>“Add New
+Tournament”</b> – Once the tournament information has been entered, press this
+button to create the new tournament record and return to the main Mantis
+screen.</p>
+
+<p class=MsoNormal style='margin-left:9.0pt;text-indent:-9.0pt'>&nbsp;</p>
+
+<p class=MsoNormal><b>“Cancel”</b> – Press this button at any time to return to
+the main interface without creating a new tournament.</p>
+
+<h2><a name="_Toc148434943"></a><a name="_Ref93895969"></a><a
+name="_Updating_a_Tournament"></a>Updating a Tournament</h2>
+
+<p class=MsoNormal>Updating a tournament lets you change the settings in the
+tournament (Name, Date, Format, etc.) after the tournament has been created
+with the following limitations:</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal>After the tournament has been sanctioned, the Game, Format
+     or Organizer cannot be changed, as well as the Sanctioning Status and ID.</li>
+ <li class=MsoNormal>After Round 1 has started, the pairing structure (Swiss,
+     single elimination, etc.) and team structure (Individual, Two-Player or
+     Three-Player Teams) cannot change.</li>
+ <li class=MsoNormal>After the tournament results have been uploaded, none of
+     the settings can be changed.</li>
+ <li class=MsoNormal>Making modifications to the tournament after it has been
+     sanctioned will have no effect.  To properly change information about the
+     tournament after it has been sanctioned, please email <a
+     href="mailto:to@upperdeck.com">to@upperdeck.com</a> with the changes.</li>
+</ul>
+
+<h2><a name="_Toc148434944"></a><a name="_Toc80603206"></a><a
+name="_Toc80602938"></a><a name="_Toc80602870"></a><a name="_Toc80602734"></a><a
+name="_Toc80598083"></a><a name="_Creating_an_Event"></a>Creating an Event
+Location</h2>
+
+<p class=MsoNormal><i>Important</i> – If you installed Mantis 2.0 on a computer
+that previously had an earlier version of Mantis installed, you may need to
+first use the “<a href="#_Tournament_Reporting_/">Perform Data Uplink</a>”
+function to obtain a list of all established tournament locations.  If the
+location of your tournament does not exist as an established location, you may
+use this functionality to add it.  Once you have created a new location and
+used the Data Uplink to report that location to Upper Deck, it will appear on
+the Upper Deck website and be available for download to Mantis installed on
+other computers.</p>
+
+<p class=MsoToc1>&nbsp;</p>
+
+<p class=MsoNormal>If the location of your event does not exist in the list of
+event locations on your system, you may access the global list of event
+locations by pressing the “Location” button located on the “<a
+href="#_Creating_a_New">Create New Tournament</a>” dialog.  You may search for
+event locations in your area by entering City, Country, Zip/Postal Code, and/or
+Name information and pressing the “Search” Button.  If there are locations
+returned by the search, you may add these locations to the list of locations on
+your system by checking the box next to the event location that you would like
+to include and press the “Select” button to return to the “Create New
+Tournament” dialog.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=576 height=539 src="instructions_files/image017.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 17</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>If you are unable to locate the event location you are
+looking for, press the “Create New Location” button and enter the information
+for your event location as accurately as possible, then press the “Select”
+button to return to the “Create New Tournament” dialog.</p>
+
+<h2><a name="_Toc148434945"></a><a name="_Toc80603207"></a><a
+name="_Toc80602939"></a><a name="_Toc80602871"></a><a name="_Toc80602735"></a><a
+name="_Toc80598084"></a><a name="_Adding_Players_to"></a>Adding Players to the
+Local Player List</h2>
+
+<p class=MsoNormal>Local Players may be added to your local Mantis database at
+any time. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=406 height=204 src="instructions_files/image018.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 18</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Make sure that the “Enroll Player” tab is active and enter
+the following information for the player that you wish to add to your local
+player database:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Player UDE Number</b> – This is the player’s 9-digit UDE
+Membership Number. If you attempt to enter a non-valid Membership Number, the
+number will become red and you will not be allowed to proceed. Once the number
+becomes green you will be allowed to enter the player’s information.  If it is
+necessary a temporary UDE Membership Number may be assigned in order to begin
+the tournament. This temporary number must be resolved before sanctioned
+tournament results may be reported to Upper Deck (See [<a
+href="#_Reconcile_Temporary_IDs">Reconcile Temporary IDs</a>] for more
+information)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>First Name and Last Name</b> – Enter the player’s name.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>“Add Player”</b> – Click this button to add this player
+to the local player database.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Once the player has been added, that player’s name and UDE
+Number will appear in the list of local tournament players:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=353 height=210 src="instructions_files/image019.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 19</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Notes:</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal>If the UDE Number entered exists in the global player
+     database, the name for that player will automatically be loaded.</li>
+ <li class=MsoNormal>If you have a tournament selected, adding a player in this
+     manner to the local database will also enroll that player into that
+     tournament.</li>
+ <li class=MsoNormal>A first and last name is required for all players.</li>
+ <li class=MsoNormal>You may add additional information found on the Player
+     Membership Card into the Mantis Database by selecting the “<a
+     href="#_Player_Information_Tab">Player Information</a>” tab.  This
+     information will not be reported to Upper Deck, so you will still need to
+     mail in the card.  </li>
+ <li class=MsoNormal>To remove a player from the list of local players, select
+     that player within the “<a href="#_Player_Information_Tab">Player
+     Information</a>” tab and remove the “Local Player” checkmark.  Note that
+     you may not remove a player from the list of local players if they are
+     participating in an unfinished tournament.</li>
+</ul>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><a name="_Toc148434946"></a><a name="_Toc80603208"></a><a
+name="_Toc80602940"></a><a name="_Toc80602872"></a><a name="_Toc80602736"></a><a
+name="_Toc80598085">Searching for a Player </a>UDE Number</h2>
+
+<p class=MsoNormal><i>Important</i> – In order to search for the UDE number of
+an existing player, you must first have downloaded the list of global players
+using the “<a href="#_Tournament_Reporting_/">Perform Data Uplink</a>”
+functionality.  If you installed Mantis on a computer that has never had Mantis
+installed before, your database may already have a recent version of the global
+player list.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Searching for a player’s UDE Number is useful for players
+who have a UDE Number, but do not remember it.  To search for a UDE Number,
+enter the player’s zip code of the address they used when creating their UDE
+account or enter the zip code and the player’s first and/or last name, then
+press the “Search” button.  Note that depending on your system speed, it may
+take a moment or two to process the search.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=394 height=203 src="instructions_files/image020.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 20</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Any results will be reported along with each player’s full
+name and UDE Number.  Pressing a player’s name in the results window will
+display them in the “Player UDE Number” area, from which they can be added to
+your local player list (and tournament, if you have one selected.)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>If you are unable to find the player using this method, you
+may still enter the player into the tournament using a temporary player ID. 
+However, be aware that you will not be able to report any completed tournaments
+with un-reconciled temporary IDs.  It will be your responsibility to follow up
+with the player to make sure their UDE number is properly obtained.  See [<a
+href="#_Reconcile_Temporary_IDs">Reconcile Temporary IDs</a>] for more
+information.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><a name="_Toc148434947"></a><a name="_Ref124156441"></a><a
+name="_Toc80603209"></a><a name="_Toc80602941"></a><a name="_Toc80602873"></a><a
+name="_Toc80602737"></a><a name="_Toc80598086">Adding Players to an Individual
+Tournament</a></h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>There are two tournament formats now, so the way you add
+players depends if the tournament is an “Individual” or “Team” tournament. 
+This section is for “individual” format tournaments; see [<u><span
+style='color:blue'>Adding Players and Teams to a ‘Team’ Tournament</span></u>]
+for instructions for a team-format tournament.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>There are several methods of adding a player to a
+tournament. The method you choose will depend on what type of tournament you
+are running, as well as whether or not the player being entered already exists
+in your local player list.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Regardless of the method used, the first step is to ensure
+that an active tournament has been selected. Simply select the tournament you
+wish to add players to from the [<a href="#_Tournament_List_Selector">Tournament
+List Selector</a>] located at the top of the interface:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=575 height=136 src="instructions_files/image021.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 21</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='text-autospace:ideograph-other'><a name="_Toc148434948"></a><a
+name="_Toc80603210"></a><a name="_Toc80602942"></a><a name="_Toc80602874"></a><a
+name="_Toc80602738"></a><a name="_Toc80598087">Add from the local player list</a></h3>
+
+<p class=MsoNormal>To add a player from the list of local players, simply
+locate the player within the list and check the box next to the player’s name:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=352 height=162 src="instructions_files/image022.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 22</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>With the player list active, you may locate a player more
+quickly by typing the first letter of the player’s last name to scroll
+automatically to that portion of the local player list.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Note that this method of adding players only works if the
+“Show Enrolled Players Only” check box has not been selected.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='text-autospace:ideograph-other'><a name="_Toc148434949"></a><a
+name="_Toc80603211"></a><a name="_Toc80602943"></a><a name="_Toc80602875"></a><a
+name="_Toc80602739"></a><a name="_Toc80598088">Add players via Player </a>UDE
+Number</h3>
+
+<p class=MsoNormal>Note: If a player does not already exist within the list of
+local players, you will need to add them via Player UDE Number. If you are
+running a larger event and are entering all players via Player UDE Number, it
+is recommended that you check the “Show Enrolled Players Only” check box for
+ease of viewing enrolled players.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To add a player to a tournament via Player UDE Number, make
+sure your tournament is selected in the Tournament List and see the section
+called “<a href="#_Adding_Players_to">Adding Players to the Local Player List</a>.” 
+These players will be added to both the tournament and the local player list.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><a name="_Toc148434950"></a><a name="_Ref124155766">Adding Players and
+Teams to a Team Tournament</a></h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>There are two tournament formats now, so the way you add
+players depends if the tournament is an “Individual” or “Team” tournament. 
+This section is for “team” format tournaments; see [<u><span style='color:blue'>Adding
+Players to an ‘Individual’ Tournament</span></u>] for instructions for an
+individual-format tournament.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Managing Teams in a Team Tournament is actually a two-part
+process: managing the teams themselves and enrolling teams into the tournament.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Regardless of the method used, the first step is to ensure
+that an active team-format tournament has been selected from the [<a
+href="#_Tournament_List_Selector">Tournament List Selector</a>] located at the
+top of the interface:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=575 height=136 src="instructions_files/image021.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 23</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='text-autospace:ideograph-other'><a name="_Toc148434951">Creating a
+new Team</a></h3>
+
+<p class=MsoNormal>To create a new team, click the “New” button in the “Team”
+area of the “Enroll” tab.  Enter a name for the team in the box next to the
+word “Name.”  To add players to the team, enter UDE Numbers in the boxes in the
+column labeled “UDE Number” and enter (or make changes to) their names if
+necessary</p>
+
+<h3 style='text-autospace:ideograph-other'>&nbsp;</h3>
+
+<h3 style='text-autospace:ideograph-other'><a name="_Toc148434952">Add from the
+local player list</a></h3>
+
+<p class=MsoNormal>To add a player from the list of local players, simply
+locate the player within the list and check the box next to the player’s name:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>With the player list active, you may locate a player more
+quickly by typing the first letter of the player’s last name to scroll
+automatically to that portion of the local player list.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Note that this method of adding players only works if the
+“Show Enrolled Players Only” check box has not been selected.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='text-autospace:ideograph-other'><a name="_Toc148434953">Add players
+via Player UDE Number</a></h3>
+
+<p class=MsoNormal>Note: If a player does not already exist within the list of
+local players, you will need to add them via Player UDE Number. If you are
+running a larger event and are entering all players via Player UDE Number, it
+is recommended that you check the “Show Enrolled Players Only” check box for
+ease of viewing enrolled players.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To add a player to a tournament via Player UDE Number, make
+sure your tournament is selected in the Tournament List and see the section
+called “<a href="#_Adding_Players_to">Adding Players to the Local Player List</a>.” 
+These players will be added to both the tournament and the local player list.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><a name="_Toc148434954"></a><a name="_Toc80603212"></a><a
+name="_Toc80602944"></a><a name="_Toc80602876"></a><a name="_Toc80602740"></a><a
+name="_Toc80598089">Late enrollment / re-enrollment</a></h2>
+
+<p class=MsoNormal>Once the tournament has started, you may still add (or
+re-add) a player to the tournament, but they will be entered with a match loss
+for the current round and all previous rounds of the tournament that they
+didn’t play.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>If a player entering late should receive a match win or be
+paired with another player instead of receiving a match loss, this may be
+accomplished by changing the results of the match and/or by using the “<a
+href="#_Manual_Re-Pairing">Manual Pairing</a>” feature to pair the late arrival
+with another player.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<b><span style='font-size:16.0pt;font-family:"Times New Roman";text-transform:
+uppercase'><br clear=all style='page-break-before:always'>
+</span></b>
+
+<h1><a name="_Toc80598090"></a><a name="_Tournament_Procedure"></a><a
+name="_Toc148434955"></a><a name="_Toc80603213"></a><a name="_Toc80602945"></a><a
+name="_Toc80602877"></a><a name="_Toc80602741">Tournament Procedure</a></h1>
+
+<h2><a name="_Toc148434956"></a><a name="_Toc80603214"></a><a
+name="_Toc80602946"></a><a name="_Toc80602878"></a><a name="_Toc80602742"></a><a
+name="_Toc80598091"></a><a name="_Beginning_the_Tournament"></a>Beginning the
+Tournament</h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=575 height=318 src="instructions_files/image023.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 24</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>There is no specific procedure for beginning the tournament
+itself.  Once all of the players have been entered into the database, you begin
+the tournament by pairing the first round.  </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The presentation of the first round, as well as how
+subsequent rounds are processed, depends upon the tournament pairing structure
+being used for the tournament.  The pairing structure is selected in the
+“Create New Tournament” and “Update Tournament” menu items in the “<a
+href="#_Menus">Tournament</a>” menu.</p>
+
+<h2><a name="_Toc148434957"></a><a name="_Ref92777112"></a><a
+name="_Toc80603215"></a><a name="_Toc80602947"></a><a name="_Toc80602879"></a><a
+name="_Toc80602743"></a><a name="_Toc80598092"></a><a name="_Creating_Pairings"></a>Creating
+Pairings&nbsp;</h2>
+
+<p class=MsoNormal>Pairing the round is a simple matter of pressing the “Pair”
+button on the “<a href="#_Tournament_Tab">Tournament</a>” tab. The pairings for
+the round will then be displayed, ready for results entry:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=416 height=165 src="instructions_files/image024.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 25</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt'><i>Note:</i> The button to pair the
+next round will not be accessible while there are still results to be entered
+from a previous round.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To quickly print a set of pairings for the round, press the
+F9 key.&nbsp; For more printing options, see
+&quot;Documents/Forms/Reports.&quot;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><i>Important</i> – When running a tournament using Swiss
+Pairings, you will use the same “Pair” button to pair each round of the
+tournament.  Do not use the “Playoff” button until you are ready to run the
+single-elimination playoffs.</p>
+
+<h2><a name="_Toc148434958"></a><a name="_Ref92777534"></a><a
+name="_Ref92771712"></a><a name="_Ref92771697"></a><a name="_Ref92771562"></a><a
+name="_Toc80603216"></a><a name="_Toc80602948"></a><a name="_Toc80602880"></a><a
+name="_Toc80602744"></a><a name="_Toc80598093"></a><a name="_Playoff_Pairings"></a>Playoff
+Pairings</h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=419 height=253 src="instructions_files/image025.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 26</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>If you are ready for single elimination playoff pairing, run
+the full number of Swiss rounds, then press the “Playoff” button on the “<a
+href="#_Tournament_Tab">Tournament</a>” tab located beneath the results entry
+fields or select the “Cut to Playoffs” menu item in the “Tournament” menu.  You
+will then be prompted to select the number of players for the playoff
+pairings.  If there are fewer players than the selected number, BYES will be
+awarded as appropriate.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=366 height=318 src="instructions_files/image026.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 27</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>If you are continuing Swiss rounds but are eliminating
+players based on their win record, select the “Cut to Win Record” menu item in
+the “Tournament” menu to drop all players who don’t meet that requirement.  </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=366 height=318 src="instructions_files/image027.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 28</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>If you are continuing Swiss rounds but are eliminating all
+but a specific number of players, select the “Cut to Top X Players” menu item
+in the “Tournament” menu.  If you would like to include players tied in match
+wins with the last eligible player in the top X, check the box labeled “Players
+Tied with the cutoff rank will remain enrolled in the tournament.”</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=366 height=318 src="instructions_files/image028.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 29</p>
+
+<h2><a name="_Toc148434959"></a><a name="_Ref92777227"></a><a
+name="_Toc80603217"></a><a name="_Toc80602949"></a><a name="_Toc80602881"></a><a
+name="_Toc80602745"></a><a name="_Toc80598094"></a><a name="_Re-Pairing_a_Round"></a>Re-Pairing
+a Round</h2>
+
+<p class=MsoNormal>It is typically not recommended to re-pair a round unless
+there have been problems that cannot be resolved easily.  For example, you may
+need to re-pair a round if one or more of the following have occurred during
+the current round:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal>A new player has been added as a late entry into the
+     tournament.</li>
+ <li class=MsoNormal>The results of a previous round have been modified.</li>
+ <li class=MsoNormal>A player dropped from the tournament, but was not recorded
+     properly.</li>
+</ul>
+
+<p class=MsoNormal style='margin-left:.25in'>&nbsp;</p>
+
+<p class=MsoNormal>In many instances, the manual pairing functionality may also
+be used to correct such circumstances.  Depending on the circumstances, you
+will need to weigh the amount of effort required to determine a manual solution
+versus the level of disruption that will be caused by having to reseat all
+players.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>A round is re-paired by simply pressing the “Re-Pair Round”
+button.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><i>Caution</i>: Re-Pairing a round will permanently delete
+all records of the current round as it exists.  Only use this option if you are
+just beginning a round and wish to reseat all players.  You will be prompted to
+verify a re-pairing.</p>
+
+<h2><a name="_Toc148434960"></a><a name="_Ref92776943"></a><a
+name="_Toc80603218"></a><a name="_Toc80602950"></a><a name="_Toc80602882"></a><a
+name="_Toc80602746"></a><a name="_Toc80598095"></a><a name="_Manual_Re-Pairing"></a>Manual
+Re-Pairing</h2>
+
+<p class=MsoNormal>Occasionally, situations may arise that require a manual
+adjustment to the pairings that were generated by the computer.  For example,
+pairing a late arrival against a BYE or correcting a pairing after discovering
+a mistakenly entered result from a previous round.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>All manual re-pairings are accomplished through the Manual
+Pairings screen. Once you have accessed the Manual Pairings screen, you will
+not be able to do anything within the main interface until you have completed
+the manual re-pairing and either accepted or rejected the results.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt'><i>Note</i>: If you are running an
+event with draft pods, you will only be allowed to pair players within their
+current pod.  Select the pod number containing the match-ups that you wish to
+re-pair.</p>
+
+<p class=MsoNormal>&nbsp;&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=576 height=439 src="instructions_files/image029.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 30</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='text-autospace:ideograph-other'><a name="_Toc148434961"></a><a
+name="_Toc80603219"></a><a name="_Toc80602951"></a><a name="_Toc80602883"></a><a
+name="_Toc80602747"></a><a name="_Toc80598096">General philosophy</a></h3>
+
+<p class=MsoNormal>The number of wins a player has will be listed in
+parenthesis to the right of the player’s name in the “Pairings” window and to
+the right of the player’s name in the “Byes” window.  The Manual Pairing system
+will always have a list of valid pairings and BYES.  As such, the “Save and
+Exit” button will always be available.  When pressed, the values shown in the
+pairing window will replace previous pairings for the current round, even if
+there is an unconfirmed pairing which has not been complete.  At any point, you
+may press the “Cancel” button to return to the main interface without adjusting
+any of the previous pairings.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='text-autospace:ideograph-other'><a name="_Toc148434962"></a><a
+name="_Toc80603220"></a><a name="_Toc80602952"></a><a name="_Toc80602884"></a><a
+name="_Toc80602748"></a><a name="_Toc80598097">Splitting a pairing</a></h3>
+
+<p class=MsoNormal>Splitting a pairing is the act of removing a pairing from
+the system.  Both players at that table will be shifted to the list of players
+with BYES for the round:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=576 height=84 src="instructions_files/image030.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 31</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To split a pairing, select the pairing and press the “Split
+-&gt;” button.  Alternately, you may split a pairing by simply double-clicking
+on the pairing.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='text-autospace:ideograph-other'><a name="_Toc148434963"></a><a
+name="_Toc80603221"></a><a name="_Toc80602953"></a><a name="_Toc80602885"></a><a
+name="_Toc80602749"></a><a name="_Toc80598098">Creating a new pairing</a></h3>
+
+<p class=MsoNormal>A new pairing may be created from the list of players with
+BYES.  Select a player from the list of players with BYES.  The selected player
+will appear in the pairing to create.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>You may press the “Clear” button to remove the player from
+the pairing that you are creating.  Once you have selected two players, press
+“&lt;- Pair” to confirm that you wish to create that pairing.  You may also
+create a pairing by double-clicking on the player that you wish to pair.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=125 height=269 src="instructions_files/image031.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 32</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The pairing list will now be updated to reflect the new
+pairing.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=575 height=103 src="instructions_files/image032.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 33</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Note that you may manually assign a new pairing to a
+specific table by selecting any table listed as “Available” prior to creating
+the pairing.  If you do not select a specific table, the new pairing will be
+assigned to the first available table.  Pairings that are not split will remain
+at their existing table numbers.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt'><i>Note</i>: Pairings that have been
+split will not retain any entered match results information, even if the two
+players were reassigned to play each other.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='text-autospace:ideograph-other'><a name="_Toc148434964"></a><a
+name="_Toc80603222"></a><a name="_Toc80602954"></a><a name="_Toc80602886"></a><a
+name="_Toc80602750"></a><a name="_Toc80598099">Applying manual pairings</a></h3>
+
+<p class=MsoNormal>Once the updated pairings have been made and are
+satisfactory, press the “Save and Exit” button to save the changes.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt'><i>Note</i>: any players assigned
+BYES due to their pairing being split via manual pairings will be considered to
+have a match win for that round. Players who began the round with a BYE (either
+a match loss or a match win) will keep their original record.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><a name="_Toc148434965"></a><a name="_Toc80603223"></a><a
+name="_Toc80602955"></a><a name="_Toc80602887"></a><a name="_Toc80602751"></a><a
+name="_Toc80598100"></a><a name="_Match_Results_Entry"></a>Match Results Entry</h2>
+
+<p class=MsoNormal>There are a number of methods to enter the results of a
+match into the Mantis system. The method you chose to use will depend entirely
+upon personal preference.  The three methods are “<a href="#_Result_Entry_by">Result
+Entry by Table Number</a>,” “<a href="#_Result_Entry_via">Result Entry via
+Pairings/Standings window</a>,” and “<a href="#_Result_Entry_via_1">Result
+Entry via Hot Key</a>.”</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='text-autospace:ideograph-other'><a name="_Toc148434966"></a><a
+name="_Ref92777366"></a><a name="_Toc80603224"></a><a name="_Toc80602956"></a><a
+name="_Toc80602888"></a><a name="_Toc80602752"></a><a name="_Toc80598101"></a><a
+name="_Result_Entry_by"></a>Result Entry by Table Number</h3>
+
+<p class=MsoNormal>To enter the results of a particular table, select the table
+you wish to report by either selecting that table from the Pairings/Standings
+window, or entering the table number in the results entry area:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=338 height=174 src="instructions_files/image033.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 34</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Press the “Win” button corresponding to the player who won
+the round.  In the event of a double-loss (typically due to penalties), press
+the “Double-Loss” button.  You may also reset the match to “Unreported”
+status.  This is useful in the event that a match result is accidentally
+entered for the wrong table.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>If either player within a pairing wishes to drop from the
+tournament, check the box labeled “Drop” next to that player’s name.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='text-autospace:ideograph-other'><a name="_Toc148434967"></a><a
+name="_Toc80603225"></a><a name="_Toc80602957"></a><a name="_Toc80602889"></a><a
+name="_Toc80602753"></a><a name="_Toc80598102"></a><a name="_Result_Entry_via"></a>Result
+Entry via Pairings/Standings window</h3>
+
+<p class=MsoNormal>You may also enter the results of a match directly in the
+Pairings/Standings window.  Press the right mouse button over the match whose
+results you would like to enter.  Selected the winner of the match from the
+pop-up menu:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=482 height=145 src="instructions_files/image034.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 35</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434968"></a><a name="_Toc80603226"></a><a
+name="_Toc80602958"></a><a name="_Toc80602890"></a><a name="_Toc80602754"></a><a
+name="_Toc80598103"></a><a name="_Result_Entry_via_1"></a>Result Entry via
+“Hot-Key”</h3>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt'><i>Note</i>: Hot-Key entry is an
+advanced concept and is recommended only for very large events where efficiency
+of data entry is a necessity.  Hot-Key entry is designed to allow for quick
+data-entry using a 10-key entry tool.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To enter the results of a table using the hot-key method,
+enter the table number then press one of the following keys:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal> ‘-‘ (minus) key if player 1 won the match.</li>
+ <li class=MsoNormal> ‘+’ (plus) key if player 2 won the match.</li>
+ <li class=MsoNormal> ‘*’ (asterisk) key if you wish to mark the match
+     unreported.</li>
+</ul>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The results of the match will immediately be recorded.  Note
+that the selected keys are laid out similar to the match results entry slip. 
+The ‘-‘ key is used to report player 1 winning because it is above the ‘+’ key
+on the 10-key layout, just as player 1 is above player 2 on the results entry
+slip.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Once you are finished entering a results via the hot-key
+method, you may immediately enter the next table number and results without
+need of any intervening keystrokes.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434969">Corrections</a></h3>
+
+<p class=MsoNormal>If an incorrect result is discovered within the same round,
+simply correct the result by following the procedure described for <a
+href="#_Match_Results_Entry">Match Results Entry</a>.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>If an incorrect result is discovered for a previous round,
+select the appropriate round using the Previous Round Selection area:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=334 height=56 src="instructions_files/image035.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 36</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Select the round of the incorrect results and change them in
+the same manner that you would when entering results normally.  You will be
+prompted to verify a change in results for previous rounds.</p>
+
+<h2><a name="_Toc148434970"></a><a name="_Toc80603229"></a><a
+name="_Toc80602961"></a><a name="_Toc80602893"></a><a name="_Toc80602757"></a><a
+name="_Toc80598106">Player Maintenance</a></h2>
+
+<h3 style='text-autospace:ideograph-other'><a name="_Toc148434971"></a><a
+name="_Toc80603230"></a><a name="_Toc80602962"></a><a name="_Toc80602894"></a><a
+name="_Toc80602758"></a><a name="_Toc80598107">Dropping a Player</a></h3>
+
+<p class=MsoNormal>If a player wishes to drop from the event, follow the
+instructions for results entry by table number.  In the “Results Table Entry”
+area of the <a href="#_Tournament_Tab">Tournament</a> tab, check the box
+labeled “Drop” corresponding to the player that wishes to drop from the event. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Most often, the player will be dropped when the results of
+the match are entered, however you may drop a player at any time, even before
+his match results have been entered.  </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>You can recognize a dropped player in the Pairings/Standings
+window by an ‘X’ to the left of their name:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=403 height=59 src="instructions_files/image036.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 37</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>You may also drop a player from the <a
+href="#_Enroll_Player_Tab">Enroll Player</a> tab by un-checking the box next to
+the player’s name.  Note that an enrolled player who has been dropped from an
+event will still have a checkmark next to their name, but that checkmark will
+appear lighter than the checkmark of those players still participating in the
+event.  This method does not apply to single elimination tournaments.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=339 height=97 src="instructions_files/image037.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 38</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='text-autospace:ideograph-other'><a name="_Toc148434972"></a><a
+name="_Toc80603231"></a><a name="_Toc80602963"></a><a name="_Toc80602895"></a><a
+name="_Toc80602759"></a><a name="_Toc80598108">Re-Enrolling a Dropped Player</a></h3>
+
+<p class=MsoNormal>Once a player has dropped from the event, you may un-drop
+that player simply by reversing either of the above processes.  </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Note that if a dropped player decides to re-enroll in the
+tournament and one or more rounds have been paired since the time the player
+dropped, that player will be given a match loss for all missed rounds
+(including the current round.)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434973">Adding a Late Player</a></h3>
+
+<p class=MsoNormal>Players may be added to the tournament at any point. 
+However, a player added after the first round of the tournament will be given a
+match loss for all rounds that the player did not participate in.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.25in'><i>Note</i>: All players added to
+a tournament after the current round has been paired (whether a late player or
+a re-enrolled player) will be given a match-loss for the current round of the
+tournament.  If that result is not correct based on the circumstances, the
+following procedures may be taken:</p>
+
+<p class=MsoNormal style='margin-left:.25in'>&nbsp;</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal>Re-Pair the round to include the late player in the
+     pairings.  Note that this option is only recommended if players have not
+     yet seen the pairings for the current round due to the disruptive nature
+     of the procedure.</li>
+ <li class=MsoNormal>Use the Manual Pairings functionality to pair the late
+     arrival with another player (assigning BYES as needed).</li>
+ <li class=MsoNormal>Alter the match results of the late-arrival within the
+     current round to be a match win.</li>
+</ul>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434974"></a><a name="_Viewing_the_Match"></a>Viewing the
+Match History for a player or team</h3>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=342 height=392 src="instructions_files/image038.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 39</p>
+
+<p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoNormal>The matches a player and team have played can be quickly
+viewed by selecting “Player Match History” in the Tournament menu, or by
+right-clicking that player’s or team’s name in the Results Entry area.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434975"></a><a name="_Selecting_a_Random"></a>Selecting a
+Random Table</h3>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=334 height=319 src="instructions_files/image039.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 40</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The scorekeeper can use this screen to randomly choose
+matches from the tournament.  If necessary, the scorekeeper can narrow the pool
+of players based on their wins (for example if the scorekeeper wants to choose
+from players with more than 2 but less than 4 wins.)  Press the “Select” button
+to randomly choose tables based on the options.  The “Print” button will print
+the selected tables with the players at those tables, twice on the same page.</p>
+
+<h2><a name="_Toc148434976">Scoring in a Grand Melee Tournament</a></h2>
+
+<p class=MsoNormal style='page-break-after:avoid'><img border=0 width=576
+height=249 src="instructions_files/image040.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 41</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The scorekeeper can add points to players in a Grand Melee
+tournament by clicking that player’s name in the Standings box or entering that
+player’s UDE Number in the “UDE” box, then pressing the “+” button.  If a
+player has been given too many points, the minus button will remove one.   If a
+player is not enrolled into the tournament, entering their UDE Number and
+pressing the “+” button will enroll them and add them to the list.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><a name="_Ref92771729"></a><a name="_Toc80603232"></a><a name="_Toc80602964"></a><a
+name="_Toc80602896"></a><a name="_Toc80602760"></a><a name="_Toc80598109"></a><a
+name="_Toc148434977"></a><a name="_Ref93896010"></a><a
+name="_Completing_a_Tournament"></a>Completing a Tournament</h2>
+
+<p class=MsoNormal>When a tournament is complete, closing it prevents accidental
+changes in the future.  The tournament will be removed from the <a
+href="#_Tournament_List_Selector">Tournament List Selector</a> and placed in
+the “<a href="#_Archive_Tab">Archive</a>” tab where it can be later viewed or
+re-opened if necessary.  Sanctioned tournaments must be closed before they can
+be uploaded, and once uploaded cannot be re-opened.  If the “Close” menu item
+is disabled, make sure the tournament is complete using the criteria below.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal>When running a single-elimination event or a Swiss event
+     with single-elimination playoffs, the tournament is considered complete
+     when all results have been entered and a winner has been determined, or
+     when one or more players have dropped from the finals.</li>
+ <li class=MsoNormal>When running a Swiss event without playoff pairings, the
+     tournament is considered complete when all results have been entered for
+     the final round of the tournament.  </li>
+</ul>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><a name="_Toc148434978"></a><a name="_Ref93896155"></a><a name="_Penalties"></a>Penalties</h1>
+
+<p class=MsoNormal>During the course of sanctioned tournaments, it may be
+necessary to assign a penalty to a player based on the established penalty
+guidelines.  Select the “Penalties” menu item from the “Tournament” menu to
+access the penalty entry screen.  Penalty tracking is not necessary during a
+non-sanctioned tournament, but may be valuable for your own records.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt'><i>Note</i>: You will only be allowed
+to assign penalties to a tournament when there is a head judge listed for the
+tournament.</p>
+
+<h2><a name="_Toc148434979"></a><a name="_Toc80603233"></a><a
+name="_Toc80602965"></a><a name="_Toc80602897"></a><a name="_Toc80602761"></a><a
+name="_Toc80598110">Viewing Penalties</a></h2>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=550 height=405 src="instructions_files/image041.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 42</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Selecting the “Penalties” menu item will display the
+“Tournament Penalties” screen.  If there have been penalties assigned during
+the current tournament, they will be listed here.  From this screen, you may
+perform the following actions:</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal>Add a new penalty.</li>
+ <li class=MsoNormal>Edit an existing penalty</li>
+ <li class=MsoNormal>Remove an existing penalty from the Mantis system.</li>
+</ul>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><a name="_Toc148434980"></a><a name="_Toc80603234"></a><a
+name="_Toc80602966"></a><a name="_Toc80602898"></a><a name="_Toc80602762"></a><a
+name="_Toc80598111">Adding/Editing Penalties</a></h2>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=424 height=405 src="instructions_files/image042.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 43</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To enter a new penalty or edit an existing penalty, simply
+supply the following information:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal><b>Player</b> – Select the player receiving the penalty
+     from the drop-down list of players.</li>
+ <li class=MsoNormal><b>Round</b> – Select the round of the tournament for
+     which the penalty was issued.</li>
+ <li class=MsoNormal><b>Infraction</b> – Select the appropriate infraction
+     (i.e. Procedural error) from the drop-down list of infractions.</li>
+ <li class=MsoNormal><b>Penalty</b> – Select the assigned penalty (i.e. Game
+     Loss, Warning, etc.) from the drop-down list of penalties.  The default
+     penalty for an infraction will automatically be selected when an
+     infraction is selected.</li>
+ <li class=MsoNormal><b>Judge</b> – Select the judge assigning the penalty from
+     the drop-down list of judges.  Note that if the judge assigning the
+     penalty does not appear in this list, you will need to verify the
+     tournament setup information to ensure that all judges have properly been
+     added to the event.</li>
+ <li class=MsoNormal><b>Note</b> – Enter a brief description of the events
+     leading up to the penalty.</li>
+</ul>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Note – you can add a penalty directly for a player by
+right-clicking that player’s name in the results table entry section on the
+“Tournament” tab and selecting “Player Penalty.”</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=336 height=160 src="instructions_files/image043.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 44</p>
+
+<b><span style='font-size:16.0pt;font-family:"Times New Roman";text-transform:
+uppercase'><br clear=all style='page-break-before:always'>
+</span></b>
+
+<h1><a name="_Toc80598112"></a><a name="_Standings"></a><a name="_Toc148434981"></a><a
+name="_Toc80603235"></a><a name="_Toc80602967"></a><a name="_Toc80602899"></a><a
+name="_Toc80602763">Standings</a></h1>
+
+<p class=MsoNormal>Players are ranked within the tournament by their match
+points.  A player receives 1 match point for each match that they win and 0
+match points for each match that they lose.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=403 height=255 src="instructions_files/image044.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 45</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal>As more than one player may have the same number of match
+     points, a series of three tie breaker systems are applied.  Standings
+     reports lists the match points and tie breakers of all players within the
+     tournament.  See the Official Tournament Policy for an explanation of the
+     tiebreaker system.</li>
+</ol>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Standings for the tournament can be viewed directly in
+Mantis (press the “Display Standings” button on the “<a href="#_Tournament_Tab">Tournament</a>”
+tab), printed (see [<a href="#_Documents_/_Forms">Documents/Forms/Reports</a>])
+or exported to a file in HTML format (see [<a href="#_HTML_Standings_and">HTML
+Standings and Pairings</a>].)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Special standings can be displayed that only include players
+of a specific age group.  The standings will only include players who have
+their birthdates entered in the “Player Information” tab.  These birth dates are
+not downloaded from Upper Deck during the Global Player Updates, they must be
+collected by the tournament organizer and scorekeeper.</p>
+
+<h1><a name="_Toc80598113"></a><a name="_Documents_/_Forms"></a>&nbsp;</h1>
+
+<b><span style='font-size:16.0pt;font-family:"Times New Roman";text-transform:
+uppercase'><br clear=all style='page-break-before:always'>
+</span></b>
+
+<h1><a name="_Documents_/_Forms_1"></a><a name="_Toc148434982"></a><a
+name="_Ref92777277"></a><a name="_Ref92772334"></a><a name="_Toc80603236"></a><a
+name="_Toc80602968"></a><a name="_Toc80602900"></a><a name="_Toc80602764">Documents
+/ Forms / Reports</a></h1>
+
+<p class=MsoNormal>The following documents, forms, and reports are available
+within Mantis:</p>
+
+<h2><a name="_Toc148434983"></a><a name="_Toc80603237"></a><a
+name="_Toc80602969"></a><a name="_Toc80602901"></a><a name="_Toc80602765"></a><a
+name="_Toc80598114">Occasional Reports</a></h2>
+
+<h3><a name="_Toc148434984"></a><a name="_Ref92773676"></a><a
+name="_Toc80603238"></a><a name="_Toc80602970"></a><a name="_Toc80602902"></a><a
+name="_Toc80602766"></a><a name="_Toc80598115"></a><a name="_Print_Player_List"></a>Print
+Player List</h3>
+
+<p class=MsoNormal>The player list is an alphabetical list of all players
+within the tournament. The purpose of the player list is to provide a list of
+all entered players so that the players in the tournament can verify that they
+have been entered into the computer prior to beginning the first round of the
+tournament.  Pressing the “Print Player List” button from the “<a
+href="#_Enroll_Player_Tab">Enroll Player</a>” tab in Mantis accesses this
+feature.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434985"></a><a name="_Ref92773704"></a><a
+name="_Seat_Players_List"></a>Seat Players List</h3>
+
+<p class=MsoNormal>The Seat Players feature allows the tournament organizer to
+assign all the players in a tournament seats without creating pairings. 
+Options in the “Seatings” dialog allow the players to be seated alphabetically
+(to assist in deck list collection) or seated randomly.  The printout can be
+printed and sorted by the player name or by the table they sit at.  This dialog
+appears when pressing the “Seat Players” button on the “<a
+href="#_Enroll_Player_Tab">Enroll Players</a>” tab in Mantis.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=574 height=366 src="instructions_files/image045.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 46</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434986"></a><a name="_Toc80603239"></a><a
+name="_Toc80602971"></a><a name="_Toc80602903"></a><a name="_Toc80602767"></a><a
+name="_Toc80598116">Pod Assignment by player</a></h3>
+
+<p class=MsoNormal>When using draft pods, the pod assignment list displays a
+list of all players and their assigned draft pod.  The players are listed with
+the number of their pod as well as their seat number within the pod.  </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The pod assignment list is printed from the Draft Pods
+screen and is printed upon creation of a new draft pod. (See [<a
+href="#_Draft_Pods">Draft Pods</a>] for more information.)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434987"></a><a name="_Toc80603240"></a><a
+name="_Toc80602972"></a><a name="_Toc80602904"></a><a name="_Toc80602768"></a><a
+name="_Toc80598117">Pod Seating by pod</a></h3>
+
+<p class=MsoNormal>When using draft pods, the pod seating creates forms that
+may be cut and placed on each draft table so that the players within the draft
+pod at that table will have a reminder of which draft seat they have been
+assigned to.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The pod-seating list is printed from the Draft Pods screen
+and is printed upon creation of a new draft pod.  (See [<a href="#_Draft_Pods">Draft
+Pods</a>] for more information.)</p>
+
+<h2><a name="_Toc148434988">Using Custom Page Breaks</a></h2>
+
+<p class=MsoNormal>Most of the reports can be printed using Custom Page
+Breaks.  You will see an area similar to the image below.  These would only
+apply to printouts that order the players alphabetically.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=161 height=82 src="instructions_files/image046.gif"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 47</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To create your own custom Page Break format, decide which
+groups of letters will appear on each page.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'>1)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Use
+a dash character (-) to identify a group of letters to appear on a page.</p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'>2)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Use
+a comma (,) to separate the pages.</p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'>3)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Any
+players whose names are before the very first letter will appear on the first
+page</p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in'>4)<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Any
+players whose names would appear after the last letter will appear on the last
+page.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>In the image above, the players would be divided into 4
+pages: the first page will contain all players whose names start with A, B, C,
+D, E, F and G.  The second page will have all players whose last names start
+with H, I, J, K, L and M.  The third page will have letters N through R, and
+the last page will have players S through Z.  If any players were not printed,
+they will appear on the first or last page, depending on their last name.</p>
+
+<h2><a name="_Toc148434989"></a><a name="_Toc80603241"></a><a
+name="_Toc80602973"></a><a name="_Toc80602905"></a><a name="_Toc80602769"></a><a
+name="_Toc80598118">Pre-round reports</a></h2>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=575 height=452 src="instructions_files/image047.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 48</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The pre-round reports are all printed from the printing
+screen, obtained by pressing the “Print Documents” button on the “<a
+href="#_Tournament_Tab">Tournament</a>” tab.  The first time you print from the
+screen after starting Mantis, you will need to set up your print
+configuration.  </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='page-break-after:avoid'>If you wish to print a specific
+document at the beginning of each round, check the box in the “Batch Printing”
+area corresponding to that document.  If you wish to print multiple copies of a
+document at the beginning of each round, use the “copies” field for that
+document to set the number of copies that you would like to print.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>You may also print a single-copy of a document by pressing
+the appropriate button in the “Single Copy Printing” area of the screen.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>For example, for a typical 100 player tournament, you may
+want to print 2 copies of the pairings by player to be posted for the players,
+1 copy of the pairings by table for scorekeeper reference, and result slips to
+be placed on the tables for the players to fill out.  To do this, check the
+boxes next to “Pairings By Player”, “Pairings By Table” and “Results Slips” and
+set the number of copies to 2 for “Pairings By Player” and 1 for “Pairings By
+Table”.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To print all selected documents, press the “Print Batch”
+button.  The first time you do this, if you have not already selected a
+printer, you will be prompted to indicate the printer that you would like the
+documents to print to.  For subsequent print jobs, the system will
+automatically use the selected printer and will maintain the list of documents
+for printing at the beginning of each round.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>In this example, if you later wanted to print a copy of the
+standings, you could do so by pressing the button labeled “Standings” in the
+“Single Copy Printing” area of the screen.  Alternately, if you wanted to start
+printing standings beginning with the 5<sup>th</sup> round of the tournament,
+you could do so by checking the “Standings” box prior to printing documents for
+that round.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt'><i>Note</i>: If you wish to print any
+of the following documents for a round other than the current round, select the
+appropriate round from the “Round to Print” drop-down box prior to printing.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434990"></a><a name="_Toc80603242"></a><a
+name="_Toc80602974"></a><a name="_Toc80602906"></a><a name="_Toc80602770"></a><a
+name="_Toc80598119">Standings</a></h3>
+
+<p class=MsoNormal>The standings report is a list of all players within the
+tournament ordered by their standings within the tournament.  In addition to
+player name, it lists the match wins and tiebreakers that were used to sort the
+players within the list.  If the current round is not complete, the standings
+will reflect the last complete round.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434991"></a><a name="_Toc80603243"></a><a
+name="_Toc80602975"></a><a name="_Toc80602907"></a><a name="_Toc80602771"></a><a
+name="_Toc80598120">Pairings by Player</a></h3>
+
+<p class=MsoNormal>Pairings by Player is an alphabetical list of all players
+within the tournament who have not dropped.  They are listed along with their
+pairing for the current round, including table number and opponent.  The
+purpose of this report is to post the pairings at the beginning of each round
+so that players will know whom they are playing against and where they should
+sit for their match.  When running a team tournament, this option will read
+“Pairings by Team.” It will print out the list of team names and a list of the
+players individual seats.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To quickly print a set of pairings for the round, you may
+also press the F9 key.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434992"></a><a name="_Toc80603244"></a><a
+name="_Toc80602976"></a><a name="_Toc80602908"></a><a name="_Toc80602772"></a><a
+name="_Toc80598121">Pairings by Table</a></h3>
+
+<p class=MsoNormal>Pairings by Table is the same information contained within
+the Pairings by Player report, but sorted by table number.  The judge or
+scorekeeper typically uses this report to verify seating.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148434993"></a><a name="_Toc80603245"></a><a
+name="_Toc80602977"></a><a name="_Toc80602909"></a><a name="_Toc80602773"></a><a
+name="_Toc80598122">Results Slips</a> </h3>
+
+<p class=MsoNormal>Results slips are created one per table for the current
+round.  They are printed 4 per page and should be separated using a paper
+cutter or scissors and distributed to the players.  When players finish their
+match, they should fill out the information on the result slip and turn it in
+to the scorekeeper for entry into the computer.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>In addition, when printing results slips, you may specify
+the following options within the “Print Slip Options” area of the screen:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=576 height=114 src="instructions_files/image048.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 49</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><b>All
+Tables/Tables</b> – Select either to print for all tables, or to print for a
+range of tables.  Under most circumstances you will want to print for all
+tables, but you may occasionally be required to print for specific tables due
+to manual pairings or damaged result slips.</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><b>Print for
+Sheet Cutter</b> – Check this box if you are using a paper-cutter and wish to
+have the print slips numbered in a collated order such that slip 1 is the first
+slip on the first page, slip 2 is the first slip on the second page, and so
+forth.  Without checking this box, slips 1 through 4 will be on the first page
+and so forth.</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><b>Announcement</b>
+– Type an announcement that will appear on all results slips.  If an
+announcement is used, a gray box will appear around the announcement to call
+the players’ attention to the announcement.  Announcements can include
+anything, but examples might be to announce a lunch break after the current
+round with a time to return, a welcome message to the tournament, etc.</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><b>Print for
+Sheet-Cutter</b> – When not checked, the result slips will be printed in order
+down the page, tables 1-4 on the first page, 5-8 on the second, etc.  When
+checked, they will be ordered differently so that using a sheet-cutter to cut
+the stack of slips into 4 mini-stacks will have the slips ordered within each
+mini-stack (one mini-stack will have the first group of tables, the second
+mini-stack the next group, etc).</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><b>Judge
+Signature</b> – When checked, the result slips will have space for a third
+signature for a judge to verify the results.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><a name="_Toc148434994"></a><a name="_Ref92772675"></a><a
+name="_HTML_Standings_and"></a>Exporting HTML and XML Standings and Pairings</h2>
+
+<p class=MsoNormal>Selecting the “<a name="OLE_LINK2"></a><a name="OLE_LINK1">Export
+HTML Standings</a>” or “Export XML Standings” menu item in the “Tournament”
+menu exports the pairings and standings of all rounds into a folder called
+“HTMLExport” or “XMLExport.”  These folders will in the directory Mantis is
+installed (usually C:\Program Files\Upper Deck\Mantis).  After the files are
+created, a dialog appears asking if you would like to view those files in
+Windows Explorer.  The HTML Export creates two files for each round: Pairings
+and Standings.  The XML Export creates a single XML file with all the same data
+as the separate HTML pages, but all rolled into one file.  </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.5in'><i>Note</i>: each time standings
+and pairings are exported, all existing standings and pairings in the output directory
+are erased and replaced with the current tournament.  Standings and pairings
+that have been renamed will not be deleted.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<b><span style='font-size:16.0pt;font-family:"Times New Roman";text-transform:
+uppercase'><br clear=all style='page-break-before:always'>
+</span></b>
+
+<h1><a name="_Toc80598123"></a><a name="_Draft_Pods"></a><a name="_Toc148434995"></a><a
+name="_Ref92774796"></a><a name="_Ref92773147"></a><a name="_Ref92771011"></a><a
+name="_Toc80603246"></a><a name="_Toc80602978"></a><a name="_Toc80602910"></a><a
+name="_Toc80602774">Draft Pods</a></h1>
+
+<p class=MsoNormal>Mantis supplies functionality to support multi-pod draft
+formats.  Note that this is advanced functionality and will not be necessary
+for most users of the software.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Draft pods are groups of 7-8 players who are assigned to
+draft from the same set of cards.  If you are unfamiliar with the draft format
+of play, it is recommended that you read the Tournament Floor Rules sections on
+drafting prior to reading this section.</p>
+
+<h2><a name="_Toc148434996"></a><a name="_Toc80603247"></a><a
+name="_Toc80602979"></a><a name="_Toc80602911"></a><a name="_Toc80602775"></a><a
+name="_Toc80598124">Creating Draft Pods</a></h2>
+
+<p class=MsoNormal>Note that draft pods should be created prior to the round in
+which they will be used, after the previous round has been completed.  If draft
+pods will be used at the start of the tournament, create the pods before
+pairing round one of the tournament. Once draft pods are created, players
+should be assigned to draft areas within their draft pods.  Throughout the
+course of the pod, all players within an individual pod will only be assigned
+to play against other players within the same draft pod.  It is allowable for
+two players that have played previously in the same tournament to be paired
+against each other again within the rounds of a draft pod.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=438 height=478 src="instructions_files/image049.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 50</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To create draft pods, select the “Draft Pod Manager” menu
+item from the &quot;Tournament&quot; menu.  This will display the Draft Pod
+Manager screen.  Pressing the “Create Pods” button will create draft pods for
+subsequent rounds of the tournament. </p>
+
+<p class=MsoNormal>            </p>
+
+<p class=MsoNormal style='text-indent:.5in'><i>Note: </i></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=269 height=359 src="instructions_files/image050.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 51</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Draft pods assignment is based on the full standings of
+players within the tournament.  Seating within each draft pod is assigned
+similarly to a Swiss tournament: randomly paired against players of equal win
+records.</p>
+
+<h2><a name="_Toc148434997">Printing Draft Seatings</a></h2>
+
+<p class=MsoNormal>Pressing the “Print Pod Assignment by Player” button will
+print the list of players in the tournament along with the pod and seat they
+are assigned to draft in.  Pressing the “Print Pod Seating Slips” button prints
+the same information but all players in the same pod are grouped together;
+these slips can be distributed to each table to remind the players their seats.</p>
+
+<h2><a name="_Toc148434998"></a><a name="_Toc80603248"></a><a
+name="_Toc80602980"></a><a name="_Toc80602912"></a><a name="_Toc80602776"></a><a
+name="_Toc80598125">Creating Pairings Within Pods</a></h2>
+
+<p class=MsoNormal>Once draft pods have been created, you will save the draft
+pod information and continue your tournament as normal.  The system will
+continue to assign pairings within the current draft pods until the draft pods
+are reset or until another draft pod group has been created.</p>
+
+<h2><a name="_Toc148434999">Creating New Draft Pods</a></h2>
+
+<p class=MsoNormal>If you wish to continue using Draft Pods in a tournament but
+need to create new pods (to reflect the players’ new records) simply click the
+“Create Pods” button to create new pods.  Be sure to save the settings when you
+exit this dialog.</p>
+
+<h2><a name="_Toc148435000"></a><a name="_Toc80603249"></a><a
+name="_Toc80602981"></a><a name="_Toc80602913"></a><a name="_Toc80602777"></a><a
+name="_Toc80598126">Ending Draft Pods</a></h2>
+
+<p class=MsoNormal>Once you have run the sufficient number of rounds with the
+current draft pods, you can remove the draft pods by entering the Draft Pods
+screen and pressing the “Reset Pods” button.  If you are creating a new set of
+draft pods, you may simply press the “Create Pods” button and the new draft
+pods will replace the existing pods.  If you do not press the “Create Pods”
+button, the tournament format will become a normal Swiss tournament.</p>
+
+<span style='font-size:12.0pt;font-family:"Times New Roman"'><br clear=all
+style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><a name="_Toc148435001"></a><a name="_Toc80603250"></a><a
+name="_Toc80602982"></a><a name="_Toc80602914"></a><a name="_Toc80602778"></a><a
+name="_Toc80598127">Tournament Maintenance</a></h1>
+
+<h2><a name="_Toc148435002"></a><a name="_Ref92771758"></a><a
+name="_Ref92771745"></a><a name="_Toc80603251"></a><a name="_Toc80602983"></a><a
+name="_Toc80602915"></a><a name="_Toc80602779"></a><a name="_Toc80598128"></a><a
+name="_Tournament_Backup"></a>Tournament Backups and Import/Export</h2>
+
+<p class=MsoNormal>Under most circumstances, you should have the tools
+necessary to perform all necessary actions within Mantis, even if data has been
+entered improperly.  Since all changes to the tournament are immediately
+recorded in the database, so even if power is lost, you will not lose any
+data.  However, there are often unforeseen complications within tournaments, so
+it is always a good idea to make sure that you have a backup of your database.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>In addition, Mantis provides functionality to move a
+tournament from one system to another through the tournament backup
+functionality.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148435003"></a><a name="_Toc80603252"></a><a
+name="_Toc80602984"></a><a name="_Toc80602916"></a><a name="_Toc80602780"></a><a
+name="_Toc80598129">Automatic Backups</a></h3>
+
+<p class=MsoNormal>Prior to pairing a new round, Mantis automatically creates a
+backup file of the current tournament, complete will all results entered for
+that round.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148435004"></a><a name="_Toc80603253"></a><a
+name="_Toc80602985"></a><a name="_Toc80602917"></a><a name="_Toc80602781"></a><a
+name="_Toc80598130"></a><a name="_Manual_Backups"></a>Manual Backups</h3>
+
+<p class=MsoNormal>In addition to the Automatic Backups, you may backup a
+tournament database to an external file at any point by selecting the “Export
+tournament to file” menu item from the “Tournament” menu.  You will be prompted
+to enter a name for this backup.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148435005"></a><a name="_Toc80603254"></a><a
+name="_Toc80602986"></a><a name="_Toc80602918"></a><a name="_Toc80602782"></a><a
+name="_Toc80598131">Restoring a previous round</a></h3>
+
+<p class=MsoNormal>By selecting the “Import tournament from file” menu item
+from the “Tournament” menu, you will be given a list of files that were
+generated from the current tournament.  To import the previous information,
+simply select the file that you wish to import and press the “Import” button.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=512 height=398 src="instructions_files/image051.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 52</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.5in'><i>Important</i> – All information
+will be lost and replaced with the data in the imported file.  It is
+recommended that you perform a manual export prior to importing a tournament
+just to be safe.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148435006"></a><a name="_Toc80603255"></a><a
+name="_Toc80602987"></a><a name="_Toc80602919"></a><a name="_Toc80602783"></a><a
+name="_Toc80598132">Loading an outside tournament</a></h3>
+
+<p class=MsoNormal>You may also import a tournament that was backed up from a
+different system.  When you create an export file, that file may be transferred
+to a different system via disk, thumb drive, email, or any other method
+desired.  From the tournament import screen, press the “Load” button and you
+will be prompted to select the file.  Once you do so, if that tournament
+already exists on that system, you will be prompted to overwrite or to leave
+the existing data.  If it does not, it will be created in the current database
+and all of the data transferred.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><a name="_Toc148435007"></a><a name="_Toc80603256"></a><a
+name="_Toc80602988"></a><a name="_Toc80602920"></a><a name="_Toc80602784"></a><a
+name="_Toc80598133">Closed Tournaments</a></h2>
+
+<p class=MsoNormal>You may view and even re-open closed tournaments from the “<a
+href="#_Archive_Tab">Archive</a>” tab.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148435008"></a><a name="_Toc80603257"></a><a
+name="_Toc80602989"></a><a name="_Toc80602921"></a><a name="_Toc80602785"></a><a
+name="_Toc80598134">Viewing a closed tournament</a></h3>
+
+<p class=MsoNormal>Select the tournament you wish to review and press the “View”
+button.  That tournament will now appear as a closed tournament in the
+tournament drop-down box.  The tournament name will appear with an asterisk and
+a red highlight to remind you that the tournament is closed.  You can view all
+data from that tournament using the same procedures as an open tournament, but
+you will not be allowed to alter any of that data.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt'><i>Note</i>: The closed tournament
+will be available for viewing until a new tournament is created, a tournament
+is reopened, or Mantis is reloaded.  If any of these events occur, you will
+need to return to the Archive tab and select “View” again.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148435009"></a><a name="_Toc80603258"></a><a
+name="_Toc80602990"></a><a name="_Toc80602922"></a><a name="_Toc80602786"></a><a
+name="_Toc80598135">Reopening a closed tournament</a></h3>
+
+<p class=MsoNormal>If a tournament has been closed and additional changes need
+to be made to the tournament, select the tournament and press “Reopen”.  You
+will now be able to perform any actions within the tournament that you can
+perform on an open tournament.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt'><i>Note</i>: If the results of a
+sanctioned tournament have been reported, you will not be allowed to reopen
+that tournament.  You will, however, be allowed to view it.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='text-autospace:ideograph-numeric ideograph-other'><a
+name="_Toc148435010">Removing a closed tournament from the list</a></h3>
+
+<p class=MsoNormal>If you no longer wish to see a tournament on this list, you
+can hide it by selecting the tournament and pressing the “Remove from list”
+button.  This will not delete the tournament from the database, only hide it
+from this list.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3 style='text-autospace:ideograph-numeric ideograph-other'><a
+name="_Toc148435011">Show all closed tournaments</a></h3>
+
+<p class=MsoNormal>Click this checkbox to view all closed tournaments,
+including ones hidden from the list.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<b><span style='font-size:16.0pt;font-family:"Times New Roman";text-transform:
+uppercase'><br clear=all style='page-break-before:always'>
+</span></b>
+
+<h1><a name="_Toc80598136"></a><a name="_Toc80603259"></a><a name="_Toc80602991"></a><a
+name="_Toc80602923"></a><a name="_Toc80602787"></a><a name="_Toc148435012">Mantis
+Utilities</a></h1>
+
+<h2><a name="_Toc148435013"></a><a name="_Ref92770210"></a><a
+name="_Reconcile_Temporary_IDs"></a>Reconcile Temporary IDs</h2>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=321 height=296 src="instructions_files/image052.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 53</p>
+
+<p class=MsoNormal>Open this dialog by selecting the “Reconcile Temporary
+Player IDs” menu item from the “Utilities” menu.  This feature is used when
+players are enrolled in a tournament with a temporary ID.  That temporary ID
+must be replaced with a UDE Number before the results can be uploaded. 
+Highlight the player whose number you wish to update, and enter their UDE
+Number in the box labeled “Player ID.” Press the “Assign” button to complete
+the procedure.  If that UDE Number already exists in your local player list or
+the global player database, you will be asked if you want to combine all the
+data for the temporary player with the existing one.</p>
+
+<h2><a name="_Toc148435014"></a><a name="_Ref92770262"></a><a
+name="_Set_Starting_Table"></a>Set Starting Table Number</h2>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=304 height=168 src="instructions_files/image053.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 54</p>
+
+<p class=MsoNormal>The default starting table number is “1”, this feature
+allows you to change the first table of the tournament.</p>
+
+<h2><a name="_Toc148435015"></a><a name="_Ref92770277"></a><a name="_Options"></a>Options</h2>
+
+<p class=MsoNormal>The “Options” menu from the “Utilities” menu will display
+this dialog.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148435016">Set Language</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=560 height=473 src="instructions_files/image054.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 55</p>
+
+<p class=MsoCaption align=center style='text-align:center'>&nbsp;</p>
+
+<p class=MsoNormal>Use this screen to select the language to display Mantis
+menus and dialogs.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148435017">Timer Options</a></h3>
+
+<p class=MsoNormal style='page-break-after:avoid'><img border=0 width=560
+height=473 src="instructions_files/image055.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 56</p>
+
+<p class=MsoNormal>Each game can be configured to have a separate group of
+timers.  Choose a game, then you can set the default Round Length and these
+messages.  The check box next to each message indicates if it is enabled or not,
+and the gray button in the same row is used to set the message.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Time Remaining</b>: This will enable a message to display
+when there are X minutes left in the round (you enter how many minutes this
+will be in the “Minutes” box next to this checkbox.)  </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Round Over</b>: When the time is over, this message will
+appear.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><b>Round Late</b>: This will enable a message to display
+when X minutes have passed after the end of the round (you enter how many
+minutes this will be in the “Minutes” box next to this checkbox.)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>You add timers to each specific tournament using the “Timer”
+tab on the main screen.</p>
+
+<h3><a name="_Toc148435018">Proxy Settings</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+border=0 width=560 height=473 src="instructions_files/image056.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 57</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Get these settings from your network administrator or
+Internet service provider if your computer is behind a proxy or uses a download
+accelerator.</p>
+
+<h1><a name="_Recommended_Procedure"></a>&nbsp;</h1>
+
+<h3><a name="_Toc148435019">Tournament Defaults</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><img border=0
+width=560 height=473 src="instructions_files/image057.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 58</p>
+
+<p class=MsoNormal>This allows the Tournament Organizer to configure default
+options for the different games Mantis can run.  Each game can have a default
+name, Tournament Organizer, Head Judge, Location, Format and Pairing.  Once
+these are set, you use them from the “Create Tournament” dialog.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148435020">Other Options</a></h3>
+
+<p class=MsoNormal style='page-break-after:avoid'><img border=0 width=560
+height=473 src="instructions_files/image058.jpg"></p>
+
+<p class=MsoCaption align=center style='text-align:center'>Figure 59</p>
+
+<p class=MsoNormal>The only option on this screen is to set the Pro Player’
+flags.  With this checked (and the current list of pro players updated) all
+players who have participated in a pro circuit or who have earned 10 or more PC
+Points will appear with an asterisk next to their name.</p>
+
+<b><span style='font-size:16.0pt;font-family:"Times New Roman";text-transform:
+uppercase'><br clear=all style='page-break-before:always'>
+</span></b>
+
+<h1><a name="_Toc148435021">Recommended Procedure</a></h1>
+
+<p class=MsoNormal>If you have already run events using other software
+packages, or as you gain more experience in running tournaments, you will
+likely develop your own set of procedures and methods of using the tournament
+software. In the meantime, we would suggest the following guidelines for
+running a tournament using the Mantis Tournament Software:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><b>Step 1</b> –
+Create a new tournament with the “Create New Tournament” menu item in the
+“Tournament” menu. Make sure you use a meaningful description for the
+Tournament Name.  This tournament will become the selected tournament in the
+list of open tournaments.  If the tournament will be sanctioned, you can obtain
+a sanctioning ID via the “Data Uplink” feature before of the actual tournament
+date (see [<a href="#_Tournament_Reporting_/">Tournament Reporting / Data
+Uplink</a>] for more information.)</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><b>Step 2</b> –
+Enter players. At this point of the tournament, you should be using the “<a
+href="#_Enroll_Player_Tab">Enroll Player</a>” tab. Make sure that the correct
+tournament is selected and enter each player’s UDE Membership Number and their
+first and last name.</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><b>Step 3</b> –
+Verify players. Print a player list and post it where all players can see.
+Announce that you have posted the list and that all players should verify that
+they have been entered into the system. If a player has been missed, enter them
+at this point.  The player list can be printed by pressing the “Print Player
+List” button on the “<a href="#_Enroll_Player_Tab">Enroll Player</a>” tab.</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><b>Step 4</b> –
+Pair the round by pressing the “Pair Round” button on the “<a
+href="#_Tournament_Tab">Tournament</a>” tab. The remainder of the tournament
+will be run from the “<a href="#_Tournament_Tab">Tournament</a>” tab.</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><b>Step 5</b> –
+Print pairings. Print pairings by player and post this document where the
+players can see it. Announce that pairings have been posted and that players
+should find their tables and sit down. You may also print pairings by table if
+desired.  These can be printed by pressing the “Print Documents” button on the
+“<a href="#_Tournament_Tab">Tournament</a>” tab.</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><b>Step 6</b> –
+Print Results Slips. Once printed, you will need to use a paper cutter or
+scissors to cut the results slips and distribute them to their corresponding
+tables.  Players should be informed that the reported results on these slips
+will be final and they should double-check the results before turning in the
+slips. These can also be printed by pressing the “Print Documents” button on
+the “<a href="#_Tournament_Tab">Tournament</a>” tab.</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:27.0pt;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><b>Step 7</b> –
+Announce to players that the round is starting. It is typically the role of the
+tournament scorekeeper to keep an official clock on the tournament. As such,
+the time at which the round begins should be noted so that the end of the round
+may be called at the appropriate time.</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><b>Step 8</b> –
+Enter match results. Be very careful to double check results entry to avoid
+problems that would require a correction in a later round. You should have most
+of the results entered prior to the end of the round so that you can assist the
+judges in locating any incomplete matches once time is called.</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><b>Step 9</b> –
+Repeat Steps 4 – 8 until the tournament is complete. In later rounds, you may
+wish to print and post standings. If you are running a single-elimination
+playoff, once you have run all Swiss rounds, press the “Playoff” instead of
+“Pair” button to generate the playoff pairings.</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:-.25in'><b>Step 10</b>
+– Close then report the tournament using the “Close” button on the “<a
+href="#_Tournament_Tab">Tournament</a>” tab. If this is a sanctioned
+tournament, make sure the results are reported to Upper Deck. (See [<a
+href="#_Tournament_Reporting_/">Tournament Reporting / Data Uplink</a>] for
+more information on uploading the tournament.)</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<b><span style='font-size:16.0pt;font-family:"Times New Roman";text-transform:
+uppercase'><br clear=all style='page-break-before:always'>
+</span></b>
+
+<h1><a name="_Toc80598137"></a><a name="_Toc148435022"></a><a
+name="_Toc80603260"></a><a name="_Toc80602992"></a><a name="_Toc80602924"></a><a
+name="_Toc80602788">Technical Information</a></h1>
+
+<h2><a name="_Toc148435023"></a><a name="_Toc80603261"></a><a
+name="_Toc80602993"></a><a name="_Toc80602925"></a><a name="_Toc80602789"></a><a
+name="_Toc80598138">Minimum System Requirements</a></h2>
+
+<p class=MsoNormal>Pentium Class PC - 200MHz or faster </p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal>Windows<sup>®</sup> 98 Second Edition, Me, 2000 or XP</li>
+ <li class=MsoNormal>Internet Explorer 5.01 or later</li>
+ <li class=MsoNormal>64 MB RAM, 96 MB recommended</li>
+ <li class=MsoNormal>115 MB available hard disk space, 40 MB additional hard
+     disk space for installation (155 MB total)</li>
+ <li class=MsoNormal>256 colors</li>
+ <li class=MsoNormal>800x600 screen resolution</li>
+ <li class=MsoNormal>CD-ROM drive</li>
+ <li class=MsoNormal>Mouse or compatible pointing device</li>
+</ul>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Internet access required for Tournament Reporting to Upper
+Deck</p>
+
+<p class=MsoNormal>Network access required for networking functionality<br>
+<br>
+</p>
+
+<h2><a name="_Toc148435024"></a><a name="_Toc80603262"></a><a
+name="_Toc80602994"></a><a name="_Toc80602926"></a><a name="_Toc80602790"></a><a
+name="_Toc80598139">Installation</a></h2>
+
+<p class=MsoNormal>The Mantis installation program will update your system if
+required and install the Mantis program.    If you have a previous version of
+Mantis installed on your computer, you must uninstall that version first then
+install this one.  Your existing data will not be deleted by the uninstall, and
+the new installation will automatically upgrade your database as necessary.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<ol style='margin-top:0in' start=1 type=1>
+ <li class=MsoNormal>Insert the CD into your CD ROM drive.</li>
+ <li class=MsoNormal>If the installer does not automatically launch, select
+     Start, Run, Browse to the CD and select Setup.exe.</li>
+ <li class=MsoNormal>Follow the on-screen instructions to complete the
+     installation.</li>
+ <li class=MsoNormal>If your computer reboots during setup, leave the CD in the
+     CD-ROM drive. If the setup program does not automatically continue, please
+     repeat step 2 above.</li>
+</ol>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><a name="_Toc148435025"></a><a name="_Toc80603263"></a><a
+name="_Toc80602995"></a><a name="_Toc80602927"></a><a name="_Toc80602791"></a><a
+name="_Toc80598140">Running the Program</a></h2>
+
+<p class=MsoNormal>Press the Start Button, select Programs, select Upper Deck,
+and select Mantis.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><a name="_Toc148435026"></a><a name="_Toc80603264"></a><a
+name="_Toc80602996"></a><a name="_Toc80602928"></a><a name="_Toc80602792"></a><a
+name="_Toc80598141"></a><a name=contact>Contact Us / Technical Support</a></h2>
+
+<h3><a name="_Toc148435027"></a><a name="_Toc80603265"></a><a
+name="_Toc80602997"></a><a name="_Toc80602929"></a><a name="_Toc80602793"></a><a
+name="_Toc80598142">To become a certified UDE Tournament Organizer</a></h3>
+
+<p class=MsoNormal>Visit our website at <a href="http://www.ude.com/judge">www.ude.com/judge</a>
+to learn how to become a certified UDE Tournament Organizer.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc148435028"></a><a name="_Toc80603266"></a><a
+name="_Toc80602998"></a><a name="_Toc80602930"></a><a name="_Toc80602794"></a><a
+name="_Toc80598143">Technical Support</a></h3>
+
+<p class=MsoNormal>An Upper Deck Mantis Representative is here to assist you
+with any issues regarding this software.  When contacting us, please provide as
+much information as you can about your computer system and the problem you are
+experiencing.  Include your phone number so we can reach you if we need more information. 
+</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Note: Some responses may take between five to ten business
+days.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>E-mail:  <a href="mailto:entertainment@upperdeck.com">entertainment@upperdeck.com</a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>
