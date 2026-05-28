@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Player {
+  id          String       @id @default(cuid())
+  firstName   String
+  lastName    String
+  udeId       String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  enrollments Enrollment[]
+  matchesP1   Match[]      @relation("Player1Matches")
+  matchesP2   Match[]      @relation("Player2Matches")
+  standings   Standing[]
+}
+
+model Tournament {
+  id           String       @id @default(cuid())
+  name         String
+  type         String       @default("SWISS")
+  format       String       @default("CONSTRUCTED")
+  gameId       Int          @default(1)
+  roundCount   Int          @default(4)
+  currentRound Int          @default(0)
+  progress     String       @default("ACTIVE")
+  date         DateTime     @default(now())
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  enrollments  Enrollment[]
+  matches      Match[]
+  standings    Standing[]
+}
+
+model Enrollment {
+  id           String     @id @default(cuid())
+  playerId     String
+  tournamentId String
+  dropped      Boolean    @default(false)
+  droppedRound Int?
+  player       Player     @relation(fields: [playerId], references: [id])
+  tournament   Tournament @relation(fields: [tournamentId], references: [id])
+
+  @@unique([playerId, tournamentId])
+}
+
+model Match {
+  id           String     @id @default(cuid())
+  tournamentId String
+  roundNumber  Int
+  tableNumber  Int?
+  player1Id    String?
+  player2Id    String?
+  result       String     @default("PENDING")
+  gamesWon1    Int        @default(0)
+  gamesWon2    Int        @default(0)
+  isBye        Boolean    @default(false)
+  isManual     Boolean    @default(false)
+  tournament   Tournament @relation(fields: [tournamentId], references: [id])
+  player1      Player?    @relation("Player1Matches", fields: [player1Id], references: [id])
+  player2      Player?    @relation("Player2Matches", fields: [player2Id], references: [id])
+}
+
+model Standing {
+  id           String     @id @default(cuid())
+  playerId     String
+  tournamentId String
+  roundNumber  Int
+  matchPoints  Int        @default(0)
+  omwPct       Float      @default(0)
+  gwPct        Float      @default(0)
+  ogwPct       Float      @default(0)
+  gamesWon     Int        @default(0)
+  gamesLost    Int        @default(0)
+  gamesDrawn    Int        @default(0)
+  rank         Int?
+  player       Player     @relation(fields: [playerId], references: [id])
+  tournament   Tournament @relation(fields: [tournamentId], references: [id])
+
+  @@unique([playerId, tournamentId, roundNumber])
+}
