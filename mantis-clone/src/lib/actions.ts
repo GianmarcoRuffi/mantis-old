@@ -372,9 +372,7 @@ export async function startRound(tournamentId: string) {
 
 export async function submitMatchResult(formData: FormData) {
   const matchId = formData.get('matchId') as string
-  const result = formData.get('result') as string
-  const gamesWon1 = Number.parseInt((formData.get('gamesWon1') as string) || '0', 10)
-  const gamesWon2 = Number.parseInt((formData.get('gamesWon2') as string) || '0', 10)
+  const winnerId = formData.get('winnerId') as string
   const tournamentId = formData.get('tournamentId') as string
 
   const tournament = await getTournamentState(tournamentId)
@@ -389,8 +387,26 @@ export async function submitMatchResult(formData: FormData) {
     !match ||
     match.roundNumber !== tournament.currentRound ||
     isRoundFinalized(tournament.standings, tournament.currentRound) ||
-    isPlaceholderMatch(match)
+    isPlaceholderMatch(match) ||
+    !match.player1Id ||
+    !match.player2Id
   ) {
+    return
+  }
+
+  let result: string
+  let gamesWon1: number
+  let gamesWon2: number
+
+  if (winnerId === match.player1Id) {
+    result = MATCH_RESULT.P1_WIN
+    gamesWon1 = 2
+    gamesWon2 = 0
+  } else if (winnerId === match.player2Id) {
+    result = MATCH_RESULT.P2_WIN
+    gamesWon1 = 0
+    gamesWon2 = 2
+  } else {
     return
   }
 

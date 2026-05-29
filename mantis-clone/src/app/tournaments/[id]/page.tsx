@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import { prisma } from '@/lib/db'
 import {
   assignManualBye,
@@ -16,6 +18,31 @@ import {
   undoLastRound,
 } from '@/lib/actions'
 import { MATCH_RESULT, TOURN_PROGRESS } from '@/lib/constants'
+
+function matchResultLabel(match: {
+  isBye: boolean
+  result: string
+  player1?: { firstName: string; lastName: string } | null
+  player2?: { firstName: string; lastName: string } | null
+}) {
+  if (match.isBye) {
+    return 'BYE'
+  }
+
+  if (match.result === MATCH_RESULT.P1_WIN && match.player1) {
+    return `Vince ${match.player1.lastName} ${match.player1.firstName}`
+  }
+
+  if (match.result === MATCH_RESULT.P2_WIN && match.player2) {
+    return `Vince ${match.player2.lastName} ${match.player2.firstName}`
+  }
+
+  if (match.result === MATCH_RESULT.DRAW) {
+    return 'Pareggio storico'
+  }
+
+  return 'In attesa risultato'
+}
 
 function snapshotReasonLabel(reason: string) {
   switch (reason) {
@@ -38,7 +65,13 @@ function snapshotReasonLabel(reason: string) {
   }
 }
 
-export default async function TournamentDetailPage({ params }: { params: { id: string } }) {
+export default async function TournamentDetailPage({
+  params,
+  searchParams,
+}: {
+  params: { id: string }
+  searchParams?: { round?: string }
+}) {
   const t = await prisma.tournament.findUnique({
     where: { id: params.id },
     include: {
@@ -66,10 +99,33 @@ export default async function TournamentDetailPage({ params }: { params: { id: s
   const enrolledPlayerIds = t.enrollments.map((enrollment) => enrollment.playerId)
   const availablePlayers = allPlayers.filter((player) => !enrolledPlayerIds.includes(player.id))
 
+  const availableRounds = Array.from(
+    new Set(
+      [
+        ...t.matches.map((match) => match.roundNumber),
+        ...t.standings.map((standing) => standing.roundNumber),
+      ].filter((roundNumber) => roundNumber > 0)
+    )
+  ).sort((left, right) => left - right)
+
+  const requestedRound = Number.parseInt(searchParams?.round ?? '', 10)
+  const fallbackRound = t.currentRound > 0 ? t.currentRound : availableRounds.at(-1) ?? 0
+  const selectedRound = availableRounds.includes(requestedRound) ? requestedRound : fallbackRound
+  const selectedRoundIndex = availableRounds.indexOf(selectedRound)
+  const previousRound = selectedRoundIndex > 0 ? availableRounds[selectedRoundIndex - 1] : null
+  const nextRound =
+    selectedRoundIndex >= 0 && selectedRoundIndex < availableRounds.length - 1
+      ? availableRounds[selectedRoundIndex + 1]
+      : null
+
   const currentRoundMatches = t.matches.filter((match) => match.roundNumber === t.currentRound)
+  const selectedRoundMatches = t.matches.filter((match) => match.roundNumber === selectedRound)
   const currentRoundFinalized =
     t.currentRound > 0 && t.standings.some((standing) => standing.roundNumber === t.currentRound)
-  const visibleCurrentRoundMatches = currentRoundMatches.filter(
+  const selectedRoundFinalized =
+    selectedRound > 0 && t.standings.some((standing) => standing.roundNumber === selectedRound)
+  const isViewingCurrentRound = selectedRound === t.currentRound
+  const visibleSelectedRoundMatches = selectedRoundMatches.filter(
     (match) => match.isBye || match.player2Id
   )
   const unpairedCurrentRoundMatches = currentRoundMatches.filter(
@@ -81,9 +137,14 @@ export default async function TournamentDetailPage({ params }: { params: { id: s
     (maxRound, standing) => Math.max(maxRound, standing.roundNumber),
     0
   )
-  const displayStandingsRound = currentRoundFinalized ? t.currentRound : latestClosedRound
+  const standingRounds = Array.from(
+    new Set(t.standings.map((standing) => standing.roundNumber))
+  ).sort((left, right) => left - right)
+  const displayStandingsRound = [...standingRounds]
+    .reverse()
+    .find((roundNumber) => roundNumber <= selectedRound) ?? (selectedRoundFinalized ? selectedRound : latestClosedRound)
   const displayStandings = t.standings
-    .filter((standing) => standing.roundNumber === displayStandingsRound)
+    .filter((standing) => standing.roundNumber === displayStandingsRound && displayStandingsRound > 0)
     .sort((left, right) => (left.rank ?? Number.MAX_SAFE_INTEGER) - (right.rank ?? Number.MAX_SAFE_INTEGER))
 
   const canStartNextRound =
@@ -95,6 +156,7 @@ export default async function TournamentDetailPage({ params }: { params: { id: s
     t.currentRound > 0 &&
     currentRoundMatches.length > 0 &&
     !currentRoundFinalized
+  const canManageSelectedRound = canManageCurrentRound && isViewingCurrentRound
   const canEndRound =
     canManageCurrentRound && currentRoundMatches.every((match) => match.result !== MATCH_RESULT.PENDING)
 
@@ -237,9 +299,48 @@ export default async function TournamentDetailPage({ params }: { params: { id: s
         </div>
 
         <div className="space-y-4">
-          <h2 className="border-b pb-2 text-xl font-bold">Round {t.currentRound} Matches</h2>
+          <div className="space-y-3 border-b pb-2">
+            <div className="flex items-center justify-between gap-3">
+              <h2 className="text-xl font-bold">
+                {selectedRound > 0 ? `Round ${selectedRound} Matches` : 'Matches'}
+              </h2>
+              {availableRounds.length > 0 && (
+                <div className="flex items-center gap-2 text-sm">
+                  {previousRound ? (
+                    <Link
+                      href={`/tournaments/${t.id}?round=${previousRound}`}
+                      className="rounded border px-3 py-1 text-gray-700 hover:bg-gray-50"
+                    >
+                      Round precedente
+                    </Link>
+                  ) : (
+                    <span className="rounded border px-3 py-1 text-gray-300">Round precedente</span>
+                  )}
+                  {nextRound ? (
+                    <Link
+                      href={`/tournaments/${t.id}?round=${nextRound}`}
+                      className="rounded border px-3 py-1 text-gray-700 hover:bg-gray-50"
+                    >
+                      Round successivo
+                    </Link>
+                  ) : (
+                    <span className="rounded border px-3 py-1 text-gray-300">Round successivo</span>
+                  )}
+                </div>
+              )}
+            </div>
+            {selectedRound > 0 && (
+              <p className="text-sm text-gray-600">
+                {isViewingCurrentRound
+                  ? selectedRoundFinalized
+                    ? 'Stai visualizzando il round corrente chiuso.'
+                    : 'Stai visualizzando il round corrente aperto.'
+                  : 'Stai visualizzando un round storico in sola lettura.'}
+              </p>
+            )}
+          </div>
 
-          {canManageCurrentRound && (
+          {canManageSelectedRound && (
             <div className="space-y-3 rounded border border-dashed border-slate-300 bg-slate-50 p-4">
               <div>
                 <h3 className="font-semibold text-slate-900">Abbinamento manuale</h3>
@@ -304,9 +405,9 @@ export default async function TournamentDetailPage({ params }: { params: { id: s
           )}
 
           <div className="space-y-3">
-            {visibleCurrentRoundMatches.map((match) => {
-              const defaultResult =
-                match.result === MATCH_RESULT.PENDING ? MATCH_RESULT.P1_WIN : match.result
+            {visibleSelectedRoundMatches.map((match) => {
+              const player1Won = match.isBye || match.result === MATCH_RESULT.P1_WIN
+              const player2Won = match.result === MATCH_RESULT.P2_WIN
 
               return (
                 <div key={match.id} className="rounded border bg-white p-4 shadow-sm">
@@ -326,57 +427,72 @@ export default async function TournamentDetailPage({ params }: { params: { id: s
                         match.result === MATCH_RESULT.PENDING ? 'bg-yellow-100' : 'bg-green-100'
                       }`}
                     >
-                      {match.result}
+                      {matchResultLabel(match)}
                     </span>
                   </div>
 
-                  <div className="flex flex-col gap-2">
-                    <div className="flex justify-between gap-3">
-                      <span>{match.player1?.lastName} {match.player1?.firstName}</span>
-                      <span className="font-mono">{match.gamesWon1}</span>
+                  <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+                    <div className={`rounded border p-3 ${player1Won ? 'border-emerald-300 bg-emerald-50' : 'border-gray-200'}`}>
+                      <div className="font-medium">
+                        {match.player1?.lastName} {match.player1?.firstName}
+                      </div>
+                      <div className="mt-3 text-sm text-gray-600">
+                        {player1Won ? 'Vincitore' : 'Non selezionato'}
+                      </div>
                     </div>
-                    <div className="flex justify-between gap-3">
-                      <span>
+                    <div className={`rounded border p-3 ${player2Won ? 'border-emerald-300 bg-emerald-50' : 'border-gray-200'}`}>
+                      <div className="font-medium">
                         {match.isBye ? '- BYE -' : `${match.player2?.lastName} ${match.player2?.firstName}`}
-                      </span>
-                      <span className="font-mono">{match.gamesWon2}</span>
+                      </div>
+                      <div className="mt-3 text-sm text-gray-600">
+                        {match.isBye ? 'Assegnato automaticamente' : player2Won ? 'Vincitore' : 'Non selezionato'}
+                      </div>
                     </div>
                   </div>
 
-                  {canManageCurrentRound && !match.isBye && (
-                    <form action={submitMatchResult} className="mt-4 grid grid-cols-2 gap-2 border-t pt-4">
+                  {canManageSelectedRound && !match.isBye && (
+                    <form action={submitMatchResult} className="mt-4 space-y-3 border-t pt-4">
                       <input type="hidden" name="matchId" value={match.id} />
                       <input type="hidden" name="tournamentId" value={t.id} />
-                      <select
-                        name="result"
-                        defaultValue={defaultResult}
-                        className="col-span-2 rounded border p-1 text-sm"
-                      >
-                        <option value={MATCH_RESULT.P1_WIN}>Vince P1</option>
-                        <option value={MATCH_RESULT.P2_WIN}>Vince P2</option>
-                        <option value={MATCH_RESULT.DRAW}>Pareggio</option>
-                      </select>
-                      <input
-                        type="number"
-                        min={0}
-                        name="gamesWon1"
-                        defaultValue={match.gamesWon1}
-                        className="rounded border p-1 text-sm"
-                      />
-                      <input
-                        type="number"
-                        min={0}
-                        name="gamesWon2"
-                        defaultValue={match.gamesWon2}
-                        className="rounded border p-1 text-sm"
-                      />
-                      <button className="rounded bg-indigo-600 p-1 text-sm text-white hover:bg-indigo-700">
-                        {match.result === MATCH_RESULT.PENDING ? 'Invia Risultato' : 'Aggiorna Risultato'}
+                      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+                        <label className="rounded border p-3 text-sm">
+                          <div className="font-medium">
+                            {match.player1?.lastName} {match.player1?.firstName}
+                          </div>
+                          <div className="mt-3 flex items-center gap-2 text-gray-600">
+                            <input
+                              type="radio"
+                              name="winnerId"
+                              value={match.player1Id ?? ''}
+                              defaultChecked={match.result === MATCH_RESULT.P1_WIN}
+                              required
+                            />
+                            <span>Spunta per indicare il vincitore</span>
+                          </div>
+                        </label>
+                        <label className="rounded border p-3 text-sm">
+                          <div className="font-medium">
+                            {match.player2?.lastName} {match.player2?.firstName}
+                          </div>
+                          <div className="mt-3 flex items-center gap-2 text-gray-600">
+                            <input
+                              type="radio"
+                              name="winnerId"
+                              value={match.player2Id ?? ''}
+                              defaultChecked={match.result === MATCH_RESULT.P2_WIN}
+                              required
+                            />
+                            <span>Spunta per indicare il vincitore</span>
+                          </div>
+                        </label>
+                      </div>
+                      <button className="rounded bg-indigo-600 px-3 py-2 text-sm text-white hover:bg-indigo-700">
+                        {match.result === MATCH_RESULT.PENDING ? 'Salva Vincitore' : 'Aggiorna Vincitore'}
                       </button>
                     </form>
                   )}
 
-                  {canManageCurrentRound && (
+                  {canManageSelectedRound && (
                     <form action={splitManualPairing.bind(null, match.id, t.id)} className="mt-2">
                       <button className="text-xs text-orange-700 hover:underline">
                         Split pairing
@@ -387,18 +503,25 @@ export default async function TournamentDetailPage({ params }: { params: { id: s
               )
             })}
 
-            {visibleCurrentRoundMatches.length === 0 && (
+            {visibleSelectedRoundMatches.length === 0 && (
               <p className="py-8 text-center italic text-gray-500">
-                {t.currentRound === 0
+                {selectedRound === 0
                   ? 'Nessun match attivo. Avvia il primo round.'
-                  : 'Nessun pairing visibile per il round corrente.'}
+                  : 'Nessun pairing visibile per il round selezionato.'}
               </p>
             )}
           </div>
         </div>
 
         <div className="space-y-4">
-          <h2 className="border-b pb-2 text-xl font-bold">Classifica</h2>
+          <div className="border-b pb-2">
+            <h2 className="text-xl font-bold">Classifica</h2>
+            <p className="text-sm text-gray-600">
+              {displayStandingsRound > 0
+                ? `Situazione dopo il round ${displayStandingsRound}`
+                : 'Nessuna classifica disponibile per il round selezionato.'}
+            </p>
+          </div>
           <div className="overflow-x-auto rounded border bg-white">
             <table className="min-w-full divide-y divide-gray-200 text-sm">
               <thead className="bg-gray-50">
