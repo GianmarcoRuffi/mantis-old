@@ -1,7 +1,15 @@
+import { ConfirmSubmitButton } from '@/components/confirm-submit-button'
+import { deleteTournament } from '@/lib/actions'
 import { prisma } from '@/lib/db'
 import Link from 'next/link'
 
-export default async function TournamentsPage() {
+export default async function TournamentsPage({
+  searchParams,
+}: {
+  searchParams?: { status?: string }
+}) {
+  const status = searchParams?.status
+
   const tournaments = await prisma.tournament.findMany({
     orderBy: { date: 'desc' },
   })
@@ -17,6 +25,12 @@ export default async function TournamentsPage() {
           Crea Torneo
         </Link>
       </div>
+
+      {status === 'tournament-deleted' && (
+        <div className="rounded border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+          Torneo eliminato correttamente.
+        </div>
+      )}
 
       <div className="bg-white rounded-lg shadow overflow-hidden border border-gray-200">
         <table className="min-w-full divide-y divide-gray-200">
@@ -59,12 +73,24 @@ export default async function TournamentsPage() {
                   {t.currentRound} / {t.roundCount}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-right">
-                  <Link
-                    href={`/tournaments/${t.id}`}
-                    className="text-indigo-600 hover:text-indigo-900 font-medium"
-                  >
-                    Gestisci
-                  </Link>
+                  <div className="flex items-center justify-end gap-3">
+                    <Link
+                      href={`/tournaments/${t.id}`}
+                      className="font-medium text-indigo-600 hover:text-indigo-900"
+                    >
+                      Gestisci
+                    </Link>
+
+                    <form action={deleteTournament.bind(null, t.id)}>
+                      <ConfirmSubmitButton
+                        type="submit"
+                        confirmMessage={`Eliminare il torneo ${t.name}? Tutti gli iscritti, match, standings e snapshot verranno rimossi.`}
+                        className="text-sm font-medium text-red-600 hover:text-red-800"
+                      >
+                        Elimina
+                      </ConfirmSubmitButton>
+                    </form>
+                  </div>
                 </td>
               </tr>
             ))}

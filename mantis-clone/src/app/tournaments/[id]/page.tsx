@@ -4,11 +4,14 @@ import { prisma } from '@/lib/db'
 import {
   assignManualBye,
   closeTournament,
+  createAndEnrollPlayer,
   createManualPairing,
+  deleteTournament,
   dropPlayer,
   endRound,
   enrollPlayer,
   repairCurrentRound,
+  removeEnrollment,
   reopenTournament,
   restoreLatestCheckpoint,
   restorePlayer,
@@ -18,6 +21,7 @@ import {
   undoLastRound,
 } from '@/lib/actions'
 import { MATCH_RESULT, TOURN_PROGRESS } from '@/lib/constants'
+import { ConfirmSubmitButton } from '@/components/confirm-submit-button'
 
 function matchResultLabel(match: {
   isBye: boolean
@@ -236,6 +240,16 @@ export default async function TournamentDetailPage({
               </button>
             </form>
           )}
+
+          <form action={deleteTournament.bind(null, t.id)}>
+            <ConfirmSubmitButton
+              type="submit"
+              confirmMessage={`Eliminare il torneo ${t.name}? Tutti gli iscritti, match, standings e snapshot verranno rimossi.`}
+              className="rounded bg-red-100 px-4 py-2 text-red-800 hover:bg-red-200"
+            >
+              Elimina Torneo
+            </ConfirmSubmitButton>
+          </form>
         </div>
       </div>
 
@@ -243,26 +257,69 @@ export default async function TournamentDetailPage({
         <div className="space-y-4">
           <h2 className="border-b pb-2 text-xl font-bold">Iscritti ({t.enrollments.length})</h2>
           {t.progress === TOURN_PROGRESS.ACTIVE && t.currentRound === 0 && (
-            <form action={enrollPlayer} className="flex gap-2">
-              <input type="hidden" name="tournamentId" value={t.id} />
-              <select
-                name="playerId"
-                className="flex-1 rounded border p-1"
-                disabled={availablePlayers.length === 0}
-              >
-                {availablePlayers.map((player) => (
-                  <option key={player.id} value={player.id}>
-                    {player.lastName} {player.firstName}
-                  </option>
-                ))}
-              </select>
-              <button
-                disabled={availablePlayers.length === 0}
-                className="rounded bg-indigo-600 px-3 py-1 text-sm text-white disabled:cursor-not-allowed disabled:bg-indigo-300"
-              >
-                Iscrivi
-              </button>
-            </form>
+            <div className="space-y-3 rounded border border-gray-200 bg-white p-4">
+              <div>
+                <h3 className="font-semibold text-gray-900">Iscrivi giocatore esistente</h3>
+                <p className="text-sm text-gray-500">
+                  Seleziona un giocatore già presente nell&apos;anagrafica e aggiungilo al torneo.
+                </p>
+              </div>
+
+              <form action={enrollPlayer} className="flex gap-2">
+                <input type="hidden" name="tournamentId" value={t.id} />
+                <select
+                  name="playerId"
+                  className="flex-1 rounded border p-2"
+                  disabled={availablePlayers.length === 0}
+                >
+                  {availablePlayers.map((player) => (
+                    <option key={player.id} value={player.id}>
+                      {player.lastName} {player.firstName}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  disabled={availablePlayers.length === 0}
+                  className="rounded bg-indigo-600 px-3 py-2 text-sm text-white disabled:cursor-not-allowed disabled:bg-indigo-300"
+                >
+                  Iscrivi
+                </button>
+              </form>
+
+              <div className="border-t pt-3">
+                <h3 className="font-semibold text-gray-900">Crea e iscrivi nuovo giocatore</h3>
+                <p className="text-sm text-gray-500">
+                  Inserisci i dati anagrafici per aggiungere subito un nuovo giocatore al torneo.
+                </p>
+              </div>
+
+              <form action={createAndEnrollPlayer} className="grid grid-cols-1 gap-2 md:grid-cols-4">
+                <input type="hidden" name="tournamentId" value={t.id} />
+                <input
+                  type="text"
+                  name="firstName"
+                  required
+                  placeholder="Nome"
+                  className="rounded border p-2 text-sm"
+                />
+                <input
+                  type="text"
+                  name="lastName"
+                  required
+                  placeholder="Cognome"
+                  className="rounded border p-2 text-sm"
+                />
+                <input
+                  type="text"
+                  name="udeId"
+                  placeholder="UDE ID"
+                  className="rounded border p-2 text-sm"
+                />
+                <button className="rounded bg-emerald-600 px-3 py-2 text-sm text-white hover:bg-emerald-700">
+                  Crea e Iscrivi
+                </button>
+              </form>
+            </div>
           )}
           <ul className="max-h-[500px] divide-y overflow-auto rounded border bg-white">
             {t.enrollments.map((enrollment) => (
@@ -278,7 +335,13 @@ export default async function TournamentDetailPage({
                   )}
                 </div>
 
-                {t.progress === TOURN_PROGRESS.ACTIVE && (
+                {t.progress === TOURN_PROGRESS.ACTIVE && t.currentRound === 0 ? (
+                  <form action={removeEnrollment.bind(null, enrollment.playerId, t.id)}>
+                    <button type="submit" className="text-xs text-red-600 hover:underline">
+                      Rimuovi
+                    </button>
+                  </form>
+                ) : t.progress === TOURN_PROGRESS.ACTIVE ? (
                   enrollment.dropped ? (
                     <form action={restorePlayer.bind(null, enrollment.playerId, t.id)}>
                       <button type="submit" className="text-xs text-emerald-700 hover:underline">
@@ -292,7 +355,7 @@ export default async function TournamentDetailPage({
                       </button>
                     </form>
                   )
-                )}
+                ) : null}
               </li>
             ))}
           </ul>

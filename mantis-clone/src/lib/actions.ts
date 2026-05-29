@@ -174,6 +174,66 @@ export async function enrollPlayer(formData: FormData) {
   revalidatePath(tournamentPath(tournamentId))
 }
 
+export async function createAndEnrollPlayer(formData: FormData) {
+  const tournamentId = formData.get('tournamentId')?.toString()
+  const firstName = formData.get('firstName')?.toString().trim()
+  const lastName = formData.get('lastName')?.toString().trim()
+  const udeIdValue = formData.get('udeId')?.toString().trim()
+
+  if (!tournamentId || !firstName || !lastName) {
+    return
+  }
+
+  const tournament = await getTournamentState(tournamentId)
+
+  if (!tournament || tournament.progress !== TOURN_PROGRESS.ACTIVE || tournament.currentRound !== 0) {
+    return
+  }
+
+  await prisma.$transaction(async (tx) => {
+    const player = await tx.player.create({
+      data: {
+        firstName,
+        lastName,
+        udeId: udeIdValue ? udeIdValue : null,
+      },
+    })
+
+    await tx.enrollment.create({
+      data: {
+        playerId: player.id,
+        tournamentId,
+      },
+    })
+  })
+
+  revalidatePath('/players')
+  revalidatePath(tournamentPath(tournamentId))
+}
+
+export async function removeEnrollment(playerId: string, tournamentId: string) {
+  if (!playerId || !tournamentId) {
+    return
+  }
+
+  const tournament = await getTournamentState(tournamentId)
+
+  if (!tournament || tournament.progress !== TOURN_PROGRESS.ACTIVE || tournament.currentRound !== 0) {
+    return
+  }
+
+  await prisma.enrollment.delete({
+    where: {
+      playerId_tournamentId: {
+        playerId,
+        tournamentId,
+      },
+    },
+  })
+
+  revalidatePath(tournamentPath(tournamentId))
+}
+
 export async function dropPlayer(playerId: string, tournamentId: string) {
   const tournament = await getTournamentState(tournamentId)
 
@@ -803,15 +863,168 @@ export async function assignManualBye(formData: FormData) {
 }
 
 export async function createPlayer(formData: FormData) {
-  const firstName = formData.get('firstName') as string
-  const lastName = formData.get('lastName') as string
-  const udeId = formData.get('udeId') as string
+  const firstName = formData.get('firstName')?.toString().trim()
+  const lastName = formData.get('lastName')?.toString().trim()
+  const udeIdValue = formData.get('udeId')?.toString().trim()
+
+  if (!firstName || !lastName) {
+    return
+  }
 
   await prisma.player.create({
-    data: { firstName, lastName, udeId },
+    data: {
+      firstName,
+      lastName,
+      udeId: udeIdValue ? udeIdValue : null,
+    },
   })
 
   redirect('/players')
+}
+
+export async function updatePlayer(formData: FormData) {
+  const playerId = formData.get('playerId')?.toString()
+  const firstName = formData.get('firstName')?.toString().trim()
+  const lastName = formData.get('lastName')?.toString().trim()
+  const udeIdValue = formData.get('udeId')?.toString().trim()
+
+  if (!playerId || !firstName || !lastName) {
+    return
+  }
+
+  await prisma.player.update({
+    where: { id: playerId },
+    data: {
+      firstName,
+      lastName,
+      udeId: udeIdValue ? udeIdValue : null,
+    },
+  })
+
+  redirect('/players')
+}
+
+export async function deletePlayer(formData: FormData) {
+  const playerId = formData.get('playerId')?.toString()
+
+  if (!playerId) {
+    return
+  }
+
+  const activeTournamentReferences = await prisma.tournament.findMany({
+    where: {
+      progress: TOURN_PROGRESS.ACTIVE,
+      OR: [
+        {
+          enrollments: {
+            some: { playerId },
+          },
+        },
+        {
+          matches: {
+            some: {
+              OR: [{ player1Id: playerId }, { player2Id: playerId }],
+            },
+          },
+        },
+        {
+          standings: {
+            some: { playerId },
+          },
+        },
+      ],
+    },
+    select: { id: true },
+  })
+
+  if (activeTournamentReferences.length > 0) {
+    redirect('/players?status=player-active-tournament')
+  }
+
+  const impactedTournaments = await prisma.tournament.findMany({
+    where: {
+      OR: [
+        {
+          enrollments: {
+            some: { playerId },
+          },
+        },
+        {
+          matches: {
+            some: {
+              OR: [{ player1Id: playerId }, { player2Id: playerId }],
+            },
+          },
+        },
+        {
+          standings: {
+            some: { playerId },
+          },
+        },
+      ],
+    },
+    select: { id: true },
+  })
+
+  const impactedTournamentIds = Array.from(
+    new Set(impactedTournaments.map((tournament) => tournament.id))
+  )
+
+  await prisma.$transaction(async (tx) => {
+    if (impactedTournamentIds.length > 0) {
+      await tx.tournamentSnapshot.deleteMany({
+        where: {
+          tournamentId: {
+            in: impactedTournamentIds,
+          },
+        },
+      })
+
+      await tx.standing.deleteMany({
+        where: {
+          playerId,
+          tournamentId: {
+            in: impactedTournamentIds,
+          },
+        },
+      })
+
+      await tx.match.deleteMany({
+        where: {
+          tournamentId: {
+            in: impactedTournamentIds,
+          },
+          OR: [{ player1Id: playerId }, { player2Id: playerId }],
+        },
+      })
+
+      await tx.enrollment.deleteMany({
+        where: {
+          playerId,
+          tournamentId: {
+            in: impactedTournamentIds,
+          },
+        },
+      })
+    }
+
+    await tx.player.delete({
+      where: { id: playerId },
+    })
+
+    for (const tournamentId of impactedTournamentIds) {
+      await rebuildStoredStandings(tx, tournamentId)
+    }
+  })
+
+  revalidatePath('/players')
+  revalidatePath('/tournaments')
+
+  for (const tournamentId of impactedTournamentIds) {
+    revalidatePath(tournamentPath(tournamentId))
+  }
+
+  redirect('/players?status=player-deleted')
 }
 
 export async function createTournament(formData: FormData) {
@@ -826,4 +1039,35 @@ export async function createTournament(formData: FormData) {
   })
 
   redirect('/tournaments/' + t.id)
+}
+
+export async function deleteTournament(tournamentId: string) {
+  if (!tournamentId) {
+    return
+  }
+
+  await prisma.$transaction(async (tx) => {
+    await tx.tournamentSnapshot.deleteMany({
+      where: { tournamentId },
+    })
+
+    await tx.standing.deleteMany({
+      where: { tournamentId },
+    })
+
+    await tx.match.deleteMany({
+      where: { tournamentId },
+    })
+
+    await tx.enrollment.deleteMany({
+      where: { tournamentId },
+    })
+
+    await tx.tournament.delete({
+      where: { id: tournamentId },
+    })
+  })
+
+  revalidatePath('/tournaments')
+  redirect('/tournaments?status=tournament-deleted')
 }
