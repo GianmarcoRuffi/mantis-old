@@ -38,7 +38,7 @@ function matchResultLabel(match: {
   }
 
   if (match.result === MATCH_RESULT.DRAW) {
-    return 'Pareggio storico'
+    return 'Risultato storico non supportato'
   }
 
   return 'In attesa risultato'
