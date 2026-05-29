@@ -37,6 +37,19 @@ export function calculateStandings(enrollments: string[], matches: MatchData[]) 
       return
     }
 
+    if (player1Id && !player2Id) {
+      players[player1Id].matchesPlayed++
+      players[player1Id].gamesWon += gamesWon1
+      players[player1Id].gamesLost += gamesWon2
+      players[player1Id].results.push({
+        opponentId: null,
+        points: MATCH_POINTS.LOSS,
+        gWon: gamesWon1,
+        gLost: gamesWon2,
+      })
+      return
+    }
+
     if (!player1Id || !player2Id) return
 
     players[player1Id].opponents.push(player2Id)

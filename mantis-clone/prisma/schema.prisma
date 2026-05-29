@@ -34,6 +34,7 @@ model Tournament {
   updatedAt    DateTime     @updatedAt
   enrollments  Enrollment[]
   matches      Match[]
+  snapshots    TournamentSnapshot[]
   standings    Standing[]
 }
 
@@ -83,4 +84,16 @@ model Standing {
   tournament   Tournament @relation(fields: [tournamentId], references: [id])
 
   @@unique([playerId, tournamentId, roundNumber])
+}
+
+model TournamentSnapshot {
+  id           String     @id @default(cuid())
+  tournamentId String
+  reason       String
+  roundNumber  Int?
+  data         String
+  createdAt    DateTime   @default(now())
+  tournament   Tournament @relation(fields: [tournamentId], references: [id])
+
+  @@index([tournamentId, createdAt])
 }
