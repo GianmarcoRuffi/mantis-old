@@ -61,7 +61,7 @@ export default async function EditPlayerPage({
             type="submit"
             className="rounded bg-indigo-600 px-6 py-2 font-medium text-white hover:bg-indigo-700"
           >
-            Salva Modifiche
+            Modifica
           </button>
           <Link
             href="/players"

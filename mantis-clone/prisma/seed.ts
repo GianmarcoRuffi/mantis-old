@@ -1,29 +1,38 @@
+import { existsSync } from 'node:fs'
+
 import { PrismaClient } from '@prisma/client'
+
+import { loadPlayersFromMdb, resolveDefaultMdbPath } from './mantis-player-import'
+
 const prisma = new PrismaClient()
 
-async function main() {
-  const players = [
-    { firstName: 'Luca', lastName: 'Rossi', udeId: '100001' },
-    { firstName: 'Marco', lastName: 'Bianchi', udeId: '100002' },
-    { firstName: 'Anna', lastName: 'Verdi', udeId: '100003' },
-    { firstName: 'Sofia', lastName: 'Neri', udeId: '100004' },
-    { firstName: 'Giovanni', lastName: 'Gialli', udeId: '100005' },
-    { firstName: 'Chiara', lastName: 'Blu', udeId: '100006' },
-  ]
+async function resetDatabase() {
+  await prisma.standing.deleteMany()
+  await prisma.match.deleteMany()
+  await prisma.tournamentSnapshot.deleteMany()
+  await prisma.enrollment.deleteMany()
+  await prisma.tournament.deleteMany()
+  await prisma.player.deleteMany()
+}
 
-  for (const p of players) {
-    await prisma.player.create({ data: p })
+async function main() {
+  const mdbPath = process.env.MANTIS_MDB_PATH ?? resolveDefaultMdbPath()
+
+  if (!existsSync(mdbPath)) {
+    throw new Error(`MDB non trovato: ${mdbPath}`)
   }
 
-  await prisma.tournament.create({
-    data: {
-      name: 'Torneo di prova Swiss',
-      type: 'SWISS',
-      format: 'CONSTRUCTED',
-      gameId: 1,
-      roundCount: 4,
-    },
-  })
+  await resetDatabase()
+
+  const players = await loadPlayersFromMdb(mdbPath)
+
+  if (players.length > 0) {
+    await prisma.player.createMany({
+      data: players,
+    })
+  }
+
+  console.log(`Seed completato: ${players.length} giocatori importati da ${mdbPath}.`)
 }
 
 main()

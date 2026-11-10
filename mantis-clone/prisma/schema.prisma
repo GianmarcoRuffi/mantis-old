@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = "file:./dev.db"
+  url      = env("DATABASE_URL")
 }
 
 model Player {
@@ -73,9 +73,9 @@ model Standing {
   tournamentId String
   roundNumber  Int
   matchPoints  Int        @default(0)
-  omwPct       Float      @default(0)
-  gwPct        Float      @default(0)
-  ogwPct       Float      @default(0)
+  tiebreaker1  Int        @default(0)
+  tiebreaker2  Int        @default(0)
+  tiebreaker3  Int        @default(0)
   gamesWon     Int        @default(0)
   gamesLost    Int        @default(0)
   gamesDrawn    Int        @default(0)

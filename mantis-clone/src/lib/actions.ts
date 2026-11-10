@@ -23,6 +23,37 @@ function tournamentPath(tournamentId: string) {
   return `/tournaments/${tournamentId}`
 }
 
+function tournamentPathWithParams(
+  tournamentId: string,
+  options?: {
+    round?: number
+    status?: string
+    manualPairing?: boolean
+    sourceMatchId?: string
+  }
+) {
+  const params = new URLSearchParams()
+
+  if (options?.round && options.round > 0) {
+    params.set('round', String(options.round))
+  }
+
+  if (options?.status) {
+    params.set('status', options.status)
+  }
+
+  if (options?.manualPairing) {
+    params.set('manualPairing', '1')
+  }
+
+  if (options?.sourceMatchId) {
+    params.set('sourceMatchId', options.sourceMatchId)
+  }
+
+  const query = params.toString()
+  return query ? `${tournamentPath(tournamentId)}?${query}` : tournamentPath(tournamentId)
+}
+
 function getRoundMatches<T extends { roundNumber: number }>(matches: T[], roundNumber: number) {
   return matches.filter((match) => match.roundNumber === roundNumber)
 }
@@ -130,9 +161,9 @@ async function rebuildStoredStandings(tx: Prisma.TransactionClient, tournamentId
         tournamentId,
         roundNumber,
         matchPoints: standing.matchPoints,
-        omwPct: standing.omwPct,
-        gwPct: standing.gwPct,
-        ogwPct: standing.ogwPct,
+        tiebreaker1: standing.tiebreaker1,
+        tiebreaker2: standing.tiebreaker2,
+        tiebreaker3: standing.tiebreaker3,
         gamesWon: standing.gamesWon,
         gamesLost: standing.gamesLost,
         gamesDrawn: standing.gamesDrawn,
@@ -161,7 +192,7 @@ export async function enrollPlayer(formData: FormData) {
 
   if (existingEnrollment) {
     revalidatePath(tournamentPath(tournamentId))
-    return
+    redirect(tournamentPathWithParams(tournamentId, { status: 'player-already-enrolled' }))
   }
 
   await prisma.enrollment.create({
@@ -172,6 +203,7 @@ export async function enrollPlayer(formData: FormData) {
   })
 
   revalidatePath(tournamentPath(tournamentId))
+  redirect(tournamentPathWithParams(tournamentId, { status: 'player-enrolled' }))
 }
 
 export async function createAndEnrollPlayer(formData: FormData) {
@@ -209,6 +241,7 @@ export async function createAndEnrollPlayer(formData: FormData) {
 
   revalidatePath('/players')
   revalidatePath(tournamentPath(tournamentId))
+  redirect(tournamentPathWithParams(tournamentId, { status: 'player-created-enrolled' }))
 }
 
 export async function removeEnrollment(playerId: string, tournamentId: string) {
@@ -232,6 +265,7 @@ export async function removeEnrollment(playerId: string, tournamentId: string) {
   })
 
   revalidatePath(tournamentPath(tournamentId))
+  redirect(tournamentPathWithParams(tournamentId, { status: 'enrollment-removed' }))
 }
 
 export async function dropPlayer(playerId: string, tournamentId: string) {
@@ -267,6 +301,12 @@ export async function dropPlayer(playerId: string, tournamentId: string) {
   })
 
   revalidatePath(tournamentPath(tournamentId))
+  redirect(
+    tournamentPathWithParams(tournamentId, {
+      round: tournament.currentRound,
+      status: 'player-dropped',
+    })
+  )
 }
 
 export async function restorePlayer(playerId: string, tournamentId: string) {
@@ -338,6 +378,12 @@ export async function restorePlayer(playerId: string, tournamentId: string) {
   })
 
   revalidatePath(tournamentPath(tournamentId))
+  redirect(
+    tournamentPathWithParams(tournamentId, {
+      round: tournament.currentRound,
+      status: 'player-restored',
+    })
+  )
 }
 
 export async function startRound(tournamentId: string) {
@@ -373,31 +419,24 @@ export async function startRound(tournamentId: string) {
 
   await createTournamentSnapshot(tournamentId, SNAPSHOT_REASON.BEFORE_ROUND_START, nextRound)
 
-  // Get history and match points for active players
-  const playerStandings = await Promise.all(
-    activeEnrollments.map(async (pid) => {
-      const playerMatches = tournament.matches.filter(
-        (m) => (m.player1Id === pid || m.player2Id === pid) && m.result !== MATCH_RESULT.PENDING
-      )
-      
-      // Calculate current match points
-      let pts = 0
-      playerMatches.forEach(m => {
-        if (m.isBye) { pts += 3 }
-        else if (m.result === MATCH_RESULT.P1_WIN && m.player1Id === pid) pts += 3
-        else if (m.result === MATCH_RESULT.P2_WIN && m.player2Id === pid) pts += 3
-        else if (m.result === MATCH_RESULT.DRAW) pts += 1
-      })
-
-      return {
-        playerId: pid,
-        matchPoints: pts,
-        omwPct: 0, // Simplified for pairing
-        gwPct: 0,
-        history: playerMatches.map((m) => (m.player1Id === pid ? m.player2Id : m.player1Id)).filter(Boolean) as string[],
-      }
-    })
+  const allEnrolledPlayerIds = tournament.enrollments.map((enrollment) => enrollment.playerId)
+  const calculatedStandings = calculateStandings(allEnrolledPlayerIds, tournament.matches)
+  const standingsByPlayerId = new Map(
+    calculatedStandings.map((standing) => [standing.playerId, standing])
   )
+
+  const playerStandings = activeEnrollments.map((playerId) => {
+    const standing = standingsByPlayerId.get(playerId)
+
+    return {
+      playerId,
+      matchPoints: standing?.matchPoints ?? 0,
+      tiebreaker1: standing?.tiebreaker1 ?? 0,
+      tiebreaker2: standing?.tiebreaker2 ?? 0,
+      tiebreaker3: standing?.tiebreaker3 ?? 0,
+      history: standing?.history ?? [],
+    }
+  })
 
   const pairings = generatePairings(nextRound, playerStandings)
 
@@ -486,6 +525,12 @@ export async function submitMatchResult(formData: FormData) {
   })
 
   revalidatePath(tournamentPath(tournamentId))
+  redirect(
+    tournamentPathWithParams(tournamentId, {
+      round: tournament.currentRound,
+      status: 'match-updated',
+    })
+  )
 }
 
 export async function endRound(tournamentId: string) {
@@ -533,9 +578,9 @@ export async function endRound(tournamentId: string) {
           tournamentId,
           roundNumber: tournament.currentRound,
           matchPoints: standing.matchPoints,
-          omwPct: standing.omwPct,
-          gwPct: standing.gwPct,
-          ogwPct: standing.ogwPct,
+          tiebreaker1: standing.tiebreaker1,
+          tiebreaker2: standing.tiebreaker2,
+          tiebreaker3: standing.tiebreaker3,
           gamesWon: standing.gamesWon,
           gamesLost: standing.gamesLost,
           gamesDrawn: standing.gamesDrawn,
@@ -651,6 +696,40 @@ export async function restoreLatestCheckpoint(tournamentId: string) {
   revalidatePath(tournamentPath(tournamentId))
 }
 
+export async function cancelManualPairing(tournamentId: string) {
+  const tournament = await getTournamentState(tournamentId)
+
+  if (!tournament || tournament.progress !== TOURN_PROGRESS.ACTIVE) {
+    return
+  }
+
+  const snapshot = await prisma.tournamentSnapshot.findFirst({
+    where: {
+      tournamentId,
+      reason: SNAPSHOT_REASON.BEFORE_MANUAL_PAIRING_CHANGE,
+      roundNumber: tournament.currentRound,
+    },
+    orderBy: { createdAt: 'desc' },
+  })
+
+  if (!snapshot) {
+    redirect(
+      tournamentPathWithParams(tournamentId, {
+        round: tournament.currentRound,
+      })
+    )
+  }
+
+  await restoreTournamentSnapshot(snapshot.id)
+  revalidatePath(tournamentPath(tournamentId))
+  redirect(
+    tournamentPathWithParams(tournamentId, {
+      round: tournament.currentRound,
+      status: 'manual-pairing-cancelled',
+    })
+  )
+}
+
 export async function repairCurrentRound(tournamentId: string) {
   const tournament = await getTournamentState(tournamentId)
 
@@ -744,6 +823,13 @@ export async function splitManualPairing(matchId: string, tournamentId: string) 
   })
 
   revalidatePath(tournamentPath(tournamentId))
+  redirect(
+    tournamentPathWithParams(tournamentId, {
+      round: tournament.currentRound,
+      status: 'manual-pairing-split',
+      manualPairing: true,
+    })
+  )
 }
 
 export async function createManualPairing(formData: FormData) {
@@ -807,6 +893,13 @@ export async function createManualPairing(formData: FormData) {
   })
 
   revalidatePath(tournamentPath(tournamentId))
+  redirect(
+    tournamentPathWithParams(tournamentId, {
+      round: tournament.currentRound,
+      status: 'manual-pairing-created',
+      manualPairing: true,
+    })
+  )
 }
 
 export async function assignManualBye(formData: FormData) {
@@ -860,6 +953,13 @@ export async function assignManualBye(formData: FormData) {
   })
 
   revalidatePath(tournamentPath(tournamentId))
+  redirect(
+    tournamentPathWithParams(tournamentId, {
+      round: tournament.currentRound,
+      status: 'manual-bye-assigned',
+      manualPairing: true,
+    })
+  )
 }
 
 export async function createPlayer(formData: FormData) {

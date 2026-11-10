@@ -3,8 +3,9 @@ import { MATCH_RESULT } from './constants'
 interface PlayerStanding {
   playerId: string
   matchPoints: number
-  omwPct: number
-  gwPct: number
+  tiebreaker1: number
+  tiebreaker2: number
+  tiebreaker3: number
   history: string[] // List of playerIds played against
 }
 
@@ -12,11 +13,12 @@ export function generatePairings(
   roundNumber: number,
   standings: PlayerStanding[]
 ) {
-  // Sort players by matchPoints DESC, then omwPct DESC, then gwPct DESC
+  // Sort players by match points, then original Mantis tiebreakers T1, T2, T3.
   const sortedPlayers = [...standings].sort((a, b) => {
     if (b.matchPoints !== a.matchPoints) return b.matchPoints - a.matchPoints
-    if (b.omwPct !== a.omwPct) return b.omwPct - a.omwPct
-    return b.gwPct - a.gwPct
+    if (b.tiebreaker1 !== a.tiebreaker1) return b.tiebreaker1 - a.tiebreaker1
+    if (b.tiebreaker2 !== a.tiebreaker2) return b.tiebreaker2 - a.tiebreaker2
+    return b.tiebreaker3 - a.tiebreaker3
   })
 
   const pairings: { player1Id: string | null; player2Id: string | null; isBye: boolean }[] = []

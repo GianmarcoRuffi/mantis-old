@@ -31,9 +31,9 @@ type TournamentSnapshotPayload = {
     tournamentId: string
     roundNumber: number
     matchPoints: number
-    omwPct: number
-    gwPct: number
-    ogwPct: number
+    tiebreaker1?: number
+    tiebreaker2?: number
+    tiebreaker3?: number
     gamesWon: number
     gamesLost: number
     gamesDrawn: number
@@ -108,9 +108,9 @@ export async function createTournamentSnapshot(
       tournamentId: standing.tournamentId,
       roundNumber: standing.roundNumber,
       matchPoints: standing.matchPoints,
-      omwPct: standing.omwPct,
-      gwPct: standing.gwPct,
-      ogwPct: standing.ogwPct,
+      tiebreaker1: standing.tiebreaker1,
+      tiebreaker2: standing.tiebreaker2,
+      tiebreaker3: standing.tiebreaker3,
       gamesWon: standing.gamesWon,
       gamesLost: standing.gamesLost,
       gamesDrawn: standing.gamesDrawn,
@@ -192,7 +192,20 @@ export async function restoreTournamentSnapshot(snapshotId: string) {
 
     if (payload.standings.length > 0) {
       await tx.standing.createMany({
-        data: payload.standings,
+        data: payload.standings.map((standing) => ({
+          id: standing.id,
+          playerId: standing.playerId,
+          tournamentId: standing.tournamentId,
+          roundNumber: standing.roundNumber,
+          matchPoints: standing.matchPoints,
+          tiebreaker1: standing.tiebreaker1 ?? 0,
+          tiebreaker2: standing.tiebreaker2 ?? 0,
+          tiebreaker3: standing.tiebreaker3 ?? 0,
+          gamesWon: standing.gamesWon,
+          gamesLost: standing.gamesLost,
+          gamesDrawn: standing.gamesDrawn,
+          rank: standing.rank,
+        })),
       })
     }
   })

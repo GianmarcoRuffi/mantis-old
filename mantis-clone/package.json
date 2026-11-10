@@ -8,7 +8,11 @@
     "start": "next start",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
-    "db:seed": "prisma db seed"
+    "db:seed": "prisma db seed",
+    "db:import:mantis": "tsx prisma/import-mantis-players.ts",
+    "db:test:prepare": "node scripts/prepare-test-db.mjs",
+    "dev:test": "node scripts/run-test-server.mjs dev",
+    "start:test": "node scripts/run-test-server.mjs start"
   },
   "dependencies": {
     "next": "^14.2.0",
