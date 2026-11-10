@@ -51,6 +51,23 @@ Il comando di preparazione si ferma se la copia esiste. La rimozione esplicita c
 
 I valori si calcolano sui risultati disponibili fino al turno considerato. Per verificare le formule: `npm run test:standings`.
 
+## Confronto con i tornei legacy
+
+Sono disponibili fixture anonime dei tornei storici 132 (10 giocatori, 4 turni) e
+134 (7 giocatori, 3 turni, bye), con suite di confronto e replay dell'interfaccia:
+
+```bash
+npm run test:legacy:tools
+npm run test:legacy
+npm run test:legacy:ui
+```
+
+Le classifiche attese richiedono gli export XML/HTML del programma originale su Windows.
+Senza questi riferimenti il confronto segnala **BLOCKED** (uscita 2), mai una coincidenza
+certificata. Il replay UI usa database e build temporanei separati. Procedura di
+esportazione, importazione e lettura dei rapporti: [guida completa](tests/fixtures/legacy/README.md).
+Esiti del replay e limiti riscontrati: [rapporto iniziale](tests/fixtures/legacy/REPORT.md).
+
 ## Analisi preliminare
 
 La directory `Mantis` contiene il programma Windows e il database Access originari, senza i sorgenti dell’applicazione. L’importatore disponibile porta nel clone i giocatori locali, ma non i tornei e gli incontri storici. La build web e le pagine principali sono state verificate su Ubuntu.

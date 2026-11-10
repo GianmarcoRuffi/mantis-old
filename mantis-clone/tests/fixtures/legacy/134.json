@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 1,
+  "legacyTournamentId": "134",
+  "sourceDatabaseSha256": "ed34f284d5913f718f5b40e22ac21fbeea6ad4adb6ebcfb0d85121af1a931ee3",
+  "game": "YU",
+  "type": "SWISS",
+  "format": "CONSTRUCTED",
+  "players": [
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P06",
+    "P07"
+  ],
+  "rounds": [
+    {
+      "number": 1,
+      "matches": [
+        {
+          "tableNumber": 0,
+          "player1Id": "P04",
+          "player2Id": "P01",
+          "winnerId": "P04",
+          "isBye": false,
+          "legacyRows": [
+            {
+              "playerId": "P04",
+              "gamesWon": 1,
+              "gamesLost": 0,
+              "matchPts": -1,
+              "placement": 1
+            },
+            {
+              "playerId": "P01",
+              "gamesWon": 0,
+              "gamesLost": 1,
+              "matchPts": -1,
+              "placement": 2
+            }
+          ]
+        },
+        {
+          "tableNumber": 1,
+          "player1Id": "P02",
+          "player2Id": "P05",
+          "winnerId": "P02",
+          "isBye": false,
+          "legacyRows": [
+            {
+              "playerId": "P02",
+              "gamesWon": 1,
+              "gamesLost": 0,
+              "matchPts": 0,
+              "placement": 1
+            },
+            {
+              "playerId": "P05",
+              "gamesWon": 0,
+              "gamesLost": 1,
+              "matchPts": 0,
+              "placement": 2
+            }
+          ]
+        },
+        {
+          "tableNumber": 2,
+          "player1Id": "P07",
+          "player2Id": "P03",
+          "winnerId": "P03",
+          "isBye": false,
+          "legacyRows": [
+            {
+              "playerId": "P07",
+              "gamesWon": 0,
+              "gamesLost": 1,
+              "matchPts": 0,
+              "placement": 1
+            },
+            {
+              "playerId": "P03",
+              "gamesWon": 1,
+              "gamesLost": 0,
+              "matchPts": 0,
+              "placement": 2
+            }
+          ]
+        },
+        {
+          "tableNumber": 3,
+          "player1Id": "P06",
+          "player2Id": null,
+          "winnerId": "P06",
+          "isBye": true,
+          "legacyRows": [
+            {
+              "playerId": "P06",
+              "gamesWon": 1,
+              "gamesLost": 0,
+              "matchPts": 1,
+              "placement": 1
+            },
+            {
+              "playerId": "BYE",
+              "gamesWon": 0,
+              "gamesLost": 1,
+              "matchPts": 0,
+              "placement": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "matches": [
+        {
+          "tableNumber": 0,
+          "player1Id": "P04",
+          "player2Id": "P06",
+          "winnerId": "P04",
+          "isBye": false,
+          "legacyRows": [
+            {
+              "playerId": "P04",
+              "gamesWon": 1,
+              "gamesLost": 0,
+              "matchPts": 0,
+              "placement": 1
+            },
+            {
+              "playerId": "P06",
+              "gamesWon": 0,
+              "gamesLost": 1,
+              "matchPts": 0,
+              "placement": 2
+            }
+          ]
+        },
+        {
+          "tableNumber": 1,
+          "player1Id": "P02",
+          "player2Id": "P03",
+          "winnerId": "P02",
+          "isBye": false,
+          "legacyRows": [
+            {
+              "playerId": "P02",
+              "gamesWon": 1,
+              "gamesLost": 0,
+              "matchPts": 1,
+              "placement": 1
+            },
+            {
+              "playerId": "P03",
+              "gamesWon": 0,
+              "gamesLost": 1,
+              "matchPts": 1,
+              "placement": 2
+            }
+          ]
+        },
+        {
+          "tableNumber": 2,
+          "player1Id": "P01",
+          "player2Id": "P05",
+          "winnerId": "P05",
+          "isBye": false,
+          "legacyRows": [
+            {
+              "playerId": "P01",
+              "gamesWon": 0,
+              "gamesLost": 1,
+              "matchPts": 0,
+              "placement": 1
+            },
+            {
+              "playerId": "P05",
+              "gamesWon": 1,
+              "gamesLost": 0,
+              "matchPts": 0,
+              "placement": 2
+            }
+          ]
+        },
+        {
+          "tableNumber": 3,
+          "player1Id": "P07",
+          "player2Id": null,
+          "winnerId": "P07",
+          "isBye": true,
+          "legacyRows": [
+            {
+              "playerId": "P07",
+              "gamesWon": 1,
+              "gamesLost": 0,
+              "matchPts": 1,
+              "placement": 1
+            },
+            {
+              "playerId": "BYE",
+              "gamesWon": 0,
+              "gamesLost": 1,
+              "matchPts": 0,
+              "placement": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "matches": [
+        {
+          "tableNumber": 0,
+          "player1Id": "P04",
+          "player2Id": "P02",
+          "winnerId": "P04",
+          "isBye": false,
+          "legacyRows": [
+            {
+              "playerId": "P04",
+              "gamesWon": 1,
+              "gamesLost": 0,
+              "matchPts": 2,
+              "placement": 1
+            },
+            {
+              "playerId": "P02",
+              "gamesWon": 0,
+              "gamesLost": 1,
+              "matchPts": 2,
+              "placement": 2
+            }
+          ]
+        },
+        {
+          "tableNumber": 1,
+          "player1Id": "P07",
+          "player2Id": "P05",
+          "winnerId": "P05",
+          "isBye": false,
+          "legacyRows": [
+            {
+              "playerId": "P07",
+              "gamesWon": 0,
+              "gamesLost": 1,
+              "matchPts": 1,
+              "placement": 1
+            },
+            {
+              "playerId": "P05",
+              "gamesWon": 1,
+              "gamesLost": 0,
+              "matchPts": 1,
+              "placement": 2
+            }
+          ]
+        },
+        {
+          "tableNumber": 2,
+          "player1Id": "P06",
+          "player2Id": "P03",
+          "winnerId": "P06",
+          "isBye": false,
+          "legacyRows": [
+            {
+              "playerId": "P06",
+              "gamesWon": 1,
+              "gamesLost": 0,
+              "matchPts": 1,
+              "placement": 1
+            },
+            {
+              "playerId": "P03",
+              "gamesWon": 0,
+              "gamesLost": 1,
+              "matchPts": 2,
+              "placement": 2
+            }
+          ]
+        },
+        {
+          "tableNumber": 3,
+          "player1Id": "P01",
+          "player2Id": null,
+          "winnerId": "P01",
+          "isBye": true,
+          "legacyRows": [
+            {
+              "playerId": "P01",
+              "gamesWon": 1,
+              "gamesLost": 0,
+              "matchPts": 1,
+              "placement": 1
+            },
+            {
+              "playerId": "BYE",
+              "gamesWon": 0,
+              "gamesLost": 1,
+              "matchPts": 0,
+              "placement": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -5,6 +5,8 @@
 
 # testing
 /coverage
+/.legacy-local/
+/test-results/
 
 # next.js
 /.next/
