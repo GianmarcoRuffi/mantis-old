@@ -43,6 +43,14 @@ npm run db:test:prepare
 
 Il comando di preparazione si ferma se la copia esiste. La rimozione esplicita cancella **solo la copia di test** e ne consente la ricreazione dal database principale.
 
+## Spareggi della classifica
+
+- **T1:** somma delle differenze tra vittorie e sconfitte degli avversari incontrati. Il contributo di ogni singolo avversario è limitato a un minimo di −3; il totale T1 può essere inferiore a −3.
+- **T2:** somma dei T1 degli avversari incontrati.
+- **T3:** somma dei quadrati dei numeri dei turni persi. Per esempio, sconfitte ai turni 2 e 5 danno `2² + 5² = 29`.
+
+I valori si calcolano sui risultati disponibili fino al turno considerato. Per verificare le formule: `npm run test:standings`.
+
 ## Analisi preliminare
 
 La directory `Mantis` contiene il programma Windows e il database Access originari, senza i sorgenti dell’applicazione. L’importatore disponibile porta nel clone i giocatori locali, ma non i tornei e gli incontri storici. La build web e le pagine principali sono state verificate su Ubuntu.

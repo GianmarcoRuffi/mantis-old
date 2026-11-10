@@ -12,7 +12,8 @@
     "db:import:mantis": "tsx prisma/import-mantis-players.ts",
     "db:test:prepare": "node scripts/prepare-test-db.mjs",
     "dev:test": "node scripts/run-test-server.mjs dev",
-    "start:test": "node scripts/run-test-server.mjs start"
+    "start:test": "node scripts/run-test-server.mjs start",
+    "test:standings": "node --import tsx --test tests/standings.test.ts"
   },
   "dependencies": {
     "next": "^14.2.0",
